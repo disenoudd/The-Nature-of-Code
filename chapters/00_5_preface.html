@@ -42,7 +42,7 @@
 
 <p>Are you reading this book on a Kindle? Printed paper? On your laptop in PDF form? On a tablet showing an animated HTML5 version? Are you strapped to a chair, absorbing the content directly into your brain via a series of electrodes, tubes, and cartridges?</p>
 
-<p>The book you are reading right now was generated with the <a href="https://github.com/runemadsen/Magic-Book-Project">Magic Book project</a>. The Magic Book is an open-source framework for self-publishing developed at <a href="http://itp.nyu.edu">ITP</a>. The idea here is that you only need to write the book once as a simple text file. Once you’ve written your content, you press a magic button, and out comes your book in a variety of formats—PDF, HTML5, printed hardcopy, Kindle, etc. Everything is designed and styled using CSS. As of the first release, the only versions available will be digital PDF, printed hardcopy, and HTML5 (which will include animated versions of the examples using Processing.js). Hopefully over the course of the next year, the book will be available in additional formats. If you’d like to help with this, please contact me (<code>daniel@shiffman.net</code>).</p>
+<p>The book you are reading right now was generated with the <a href="https://github.com/magicbookproject/">Magic Book project</a>. The Magic Book is an open-source framework for self-publishing developed at <a href="http://itp.nyu.edu">ITP</a>. The idea here is that you only need to write the book once as a simple text file. Once you’ve written your content, you press a magic button, and out comes your book in a variety of formats—PDF, HTML5, printed hardcopy, Kindle, etc. Everything is designed and styled using CSS. As of the first release, the only versions available will be digital PDF, printed hardcopy, and HTML5 (which will include animated versions of the examples using Processing.js). Hopefully over the course of the next year, the book will be available in additional formats. If you’d like to help with this, please contact me (<code>daniel@shiffman.net</code>).</p>
 </section>
 
 <section data-type="sect1" id="_p_5_the_story_of_this_book">
@@ -60,13 +60,13 @@
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
 x = x + 1;</pre>
 
-<p>You draw some shape at location <span class="var">x</span>. With each frame of animation, you increment the value of <span class="var">x</span>, redraw the shape and voila—the illusion of motion! Maybe you took it a step or two further, and included a <span class="var">y</span> location, as well as variables for speed along the <em>x</em> and <em>y</em> axes.</p>
+<p>You draw some shape at position <code>x</code>. With each frame of animation, you increment the value of <code>x</code>, redraw the shape and voila—the illusion of motion! Maybe you took it a step or two further, and included a <code>y</code> position, as well as variables for speed along the <em>x</em> and <em>y</em> axes.</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
 x = x + xspeed;
 y = y + yspeed;</pre>
 
-<p>Part I of this story will take us one step further. We’re going to take these variables <span class="var">xspeed</span> and <span class="var">yspeed</span> and learn how together they form a vector (<strong>Chapter 1</strong>), the building block of motion. We won’t get any new functionality out of this, but it will build a solid foundation for the rest of the book.</p>
+<p>Part I of this story will take us one step further. We’re going to take these variables <code>xspeed</code> and <code>yspeed</code> and learn how together they form a vector (<strong>Chapter 1</strong>), the building block of motion. We won’t get any new functionality out of this, but it will build a solid foundation for the rest of the book.</p>
 
 <p>Once we know a little something about vectors, we’re going to quickly realize that a force (<strong>Chapter 2</strong>) is a vector. Kick a soccer ball and you are applying a force. What does a force cause an object to do? According to Isaac Newton, force equals mass times acceleration. That force causes an object to accelerate. Modeling forces will allow us to create systems with dynamic motion where objects move according to a variety of rules.</p>
 
@@ -97,7 +97,6 @@ y = y + yspeed;</pre>
 
 <p>While the content in this book certainly makes for an intense and highly compressed semester, I have designed it to fit into a fourteen-week course. Nevertheless, it’s worth mentioning that I find that the book chapters sometimes work better expanded across multiple weeks. For example, the syllabus for my course generally works out as follows:</p>
 
-<div class="list">
 <dl class="preface">
 	<dt>Week 1</dt>
 	<dd>
@@ -152,7 +151,6 @@ y = y + yspeed;</pre>
 	<p>Final project presentation</p>
 	</dd>
 </dl>
-</div>
 
 <p>If you are considering using this text for a course or workshop, please feel free to contact me. I hope to eventually release a companion set of videos and slide presentations as supplementary educational materials.</p>
 </section>
