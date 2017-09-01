@@ -6,7 +6,7 @@ void setup() {
   location = new PVector(100,100);
   velocity = new PVector(2.5,5);
 }
- 
+
 void draw() {
   background(255);
  
@@ -17,7 +17,7 @@ void draw() {
   if ((location.y > height) || (location.y < 0)) {
     velocity.y = velocity.y * -1;
   }
- 
+
   stroke(0);
   fill(175);
   ellipse(location.x,location.y,16,16);
