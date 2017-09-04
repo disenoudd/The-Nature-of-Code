@@ -1,0 +1,13 @@
+Si tenemos esto:
+<span class="klass">PFont</span>
+<span class="klass">PVector</span>
+
+Y queremos tener esto:
+<code>PFont</code>
+<code>PVector</code>
+
+Podemos reemplazar con:
+FIND:
+<span class="var">(.*?)</span>
+REPLACE:
+<code>$1</code>
