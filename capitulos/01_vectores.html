@@ -1003,160 +1003,160 @@ movedor.mostrar();</pre>
 </section>
 
 <section data-type="sect1" id="chapter01_section8">
-<h2>1.8 Movimiento y Vectores: Aceleración</h2>
+<h2>1.8 Vectores de Movimiento: Aceleración</h2>
 
 <a data-primary="acceleration" data-type="indexterm"></a> <a data-primary="vectors" data-secondary="acceleration" data-type="indexterm"></a> <a data-primary="velocity" data-secondary="acceleration" data-type="indexterm"></a>
 
-<p>OK. At this point, we should feel comfortable with two things: (1) what a <code>PVector</code> is and (2) how we use <code>PVector</code><code>s</code> inside of an object to keep track of its position and movement. This is an excellent first step and deserves a mild round of applause. Before standing ovations and screaming fans, however, we need to make one more, somewhat bigger step forward. After all, watching the Motion 101 example is fairly boring—the circle never speeds up, never slows down, and never turns. For more interesting motion, for motion that appears in the real world around us, we need to add one more <code>PVector</code> to our class—<code>acceleration</code>.</p>
+<p>OK. En este punto, debiéramos ya estar cómodos con dos cosas: (1) con qué es un <code>PVector</code> y (2) con cómo usar objetos tipo <code>PVector</code> dentro de otro objeto para registrar su posición y movimiento. Este es un gran primer paso y nos merecemos una ronda de aplauso. Pero antes de recibir una ovación de pie y tener fanáticos gritándonos, tenemos que dar un paso más. Después de todo, el ejemplo de Movimiento 101 es bastante aburrido – el círculo nunca acelera, nunca disminuye su velocidad, nunca cambia de dirección. Para tener movimiento más interesante, algo que parezca sacado del mundo real, tenemos que agregar otro <code>PVector</code> a nuestra clase–<code>aceleración</code>.</p>
 
-<p>The strict definition of <strong><em>acceleration</em></strong> we’re using here is: <em>the rate of change of velocity</em>. Let’s think about that definition for a moment. Is this a new concept? Not really. Velocity is defined as <em>the rate of change of position</em>. In essence, we are developing a “trickle-down” effect. Acceleration affects velocity, which in turn affects position (for some brief foreshadowing, this point will become even more crucial in the next chapter, when we see how forces affect acceleration, which affects velocity, which affects position). In code, this reads:</p>
+<p>La definición precisa de <strong><em>aceleración</em></strong> que usaremos es: <em>la proporción de cambio de la velocidad</em>. Pensemos en esa definición por un momento. ¿Es esto un concepto nuevo? No realmente. Velocidad la definimos como <em>la proporción de cambio de posición</em>. Entonces, estamos desarrollando un efecto de "chorreo". La aceleración afecta la velocidad, que a su vez afecta la posición (y les anticipo, este punto es crucial porque más adelante veremos cómo las fuerzas afectan la aceleración, que a su vez afecta la velocidad, que afecta la posición). En código, esto queda:</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-velocity.add(acceleration);
-position.add(velocity);</pre>
+velocidad.add(aceleracion);
+posicion.add(velocidad);</pre>
 
-<p>As an exercise, from this point forward, let’s make a rule for ourselves. Let’s write every example in the rest of this book without ever touching the value of velocity and position (except to initialize them). In other words, our goal now for programming motion is: Come up with an algorithm for how we calculate acceleration and let the trickle-down effect work its magic. (In truth, you’ll find reasons to break this rule, but it’s important to illustrate the principles behind our motion algorithm.) And so we need to come up with some ways to calculate acceleration:</p>
+<p>Como ejercicio, desde este punto en adelante, pongamos una regla para nosotros mismo. Escribamos todos los ejemplos en el resto del libro sin tocar jamás los valores de velocidad y posición (excepto al inicializarlos). En otras palabras, ahora nuestro objetivo para programar movimiento es: encontrar un algoritmo para calcular la aceleración y permitir que el efecto de chorreo haga su magia (La verdad, encontrarás razones para romper esta regla, pero es importante ilustrar los principios detrás de nuestro algoritmo de movimiento). Entonces, tenemos que definir algunas maneras de calcular la aceleracion:</p>
 
 <section data-type="sect2" id="_acceleration_algorithms">
-<h3>Acceleration Algorithms!</h3>
+<h3>¡Algoritmos de Aceleración!</h3>
 
 <a data-primary="acceleration" data-secondary="algorithms for" data-type="indexterm"></a> <a data-primary="acceleration algorithms" data-type="indexterm"></a>
 
 <ol>
 	<li>
-	<p><em>A constant acceleration</em></p>
+	<p><em>Aceleración constante</em></p>
 	</li>
 	<li>
-	<p><em>A totally random acceleration</em></p>
+	<p><em>Aceleración totalmente aleatoria</em></p>
 	</li>
 	<li>
-	<p><em>Acceleration towards the mouse</em></p>
+	<p><em>Aceleración hacia el mouse</em></p>
 	</li>
 </ol>
 
 <a data-primary="acceleration algorithms" data-secondary="constant" data-type="indexterm"></a>
 
-<p>Algorithm #1, <em>a constant acceleration</em>, is not particularly interesting, but it is the simplest and will help us begin incorporating acceleration into our code. The first thing we need to do is add another <code>PVector</code> to the <code>Mover</code> class:</p>
+<p>El algoritmo #1, <em>aceleración constante</em>, no es particularmente interesante, pero es el más simple y por eso nos permitirá empezar a incorporar aceleración a nuestro código. Lo primero que debemos hacer es crear otro <code>PVector</code> en la clase <code>Movedor</code>:</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-class Mover {
+class Movedor {
 
-  PVector position;
-  PVector velocity;
-  //{.bold} A new PVector for acceleration
-  PVector acceleration;</pre>
+  PVector posicion;
+  PVector velocidad;
+  //{.bold} Un nuevo PVector para la aceleración
+  PVector aceleracion;</pre>
 
-<p>And incorporate acceleration into the <code>update()</code> function:</p>
+<p>Y ahora incorporar la aceleración en la función <code>actualizar()</code>:</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
- void update() {
-    //{!2 .bold} Our motion algorithm is now two lines of code!
-    velocity.add(acceleration);
-    position.add(velocity);
+ void actualizar() {
+    //{!2 .bold} Nuestro algoritmo de movimiento ahora tiene dos líneas!
+    velocidad.add(aceleracion);
+    posicion.add(velocidad);
  }</pre>
 
-<p>We’re almost done. The only missing piece is initialization in the constructor.</p>
+<p>Estamos casi listos. Sólo nos falta la inicialización en el constructor de la clase.</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-  Mover() {</pre>
+  Movedor() {</pre>
 
-<p>Let’s start the <code>Mover</code> object in the middle of the window…</p>
-
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-    position = new PVector(width/2,height/2);</pre>
-
-<p>…with an initial velocity of zero.</p>
+<p>Comencemos con el objeto <code>Movedor</code> en la mitad de la ventana…</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-    velocity = new PVector(0,0);</pre>
+    posicion = new PVector(width/2,height/2);</pre>
 
-<p>This means that when the sketch starts, the object is at rest. We don’t have to worry about velocity anymore, as we are controlling the object’s motion entirely with acceleration. Speaking of which, according to Algorithm #1, our first sketch involves constant acceleration. So let’s pick a value.</p>
+<p>…con una velocidad inicial cero.</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-    acceleration = new PVector(-0.001, 0.01);
+    velocidad = new PVector(0,0);</pre>
+
+<p>Esto significa que cuando iniciemos el sketch, el objeto estará pausado. No nos preocuparemos más de la velocidad, pues controlaremos el movimiento del objeto sólo con su aceleración. Y hablando de aquello, de acuerdo al Algoritmo #1, nuestro primer sketch tiene aceleración constante. Elijamos un valor.</p>
+
+<pre data-code-language="java" data-type="programlisting" class="codesplit">
+    aceleracion = new PVector(-0.001, 0.01);
   }</pre>
 
-<p>Maybe you’re thinking, “Gosh, those values seem awfully small!” That’s right, they are quite tiny. It’s important to realize that our acceleration values (measured in pixels) accumulate over time in the velocity, about thirty times per second depending on our sketch’s frame rate. And so to keep the magnitude of the velocity vector within a reasonable range, our acceleration values should remain quite small. We can also help this cause by incorporating the <code>PVector</code> function <code>limit()</code>.</p>
+<p>Quizás estás pensando, "¡Vaya, esos valores son muy pequeños!" y tienes razón. Lo son. Es importante darse cuenta que nuestros valores para la aceleración (medidos en pixeles) se acumulan en la velocidad mientras pasa el tiempo, unas treinta veces por segundo, dependiendo de los cuadros por segundo del sketch. Por eso, para mantener la magnitud del vector de velocidad dentro de un rango razonable, los valores de aceleración deben permanecer pequeños. También podemos controlar este factor usando la funcion <code>limit()</code> del <code>Pvector</code>.</p>
 
 <a data-primary="limit() function (PVector class)" data-type="indexterm"></a> <a data-primary="magnitude (of vectors)" data-secondary="limiting" data-type="indexterm"></a> <a data-primary="PVector class (Processing)" data-secondary="limit() function" data-type="indexterm"></a> <a data-primary="velocity" data-secondary="limiting" data-type="indexterm"></a>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-// The limit() function constrains the magnitude of a vector.
-velocity.limit(10);</pre>
+// La función limit() limita la magnitud de un vector.
+velocidad.limit(10);</pre>
 
-<p>This translates to the following:</p>
+<p>Esto se traduce de esta manera:</p>
 
-<p><em>What is the magnitude of velocity? If it’s less than 10, no worries; just leave it as is. If it’s more than 10, however, reduce it to 10!</em></p>
+<p><em>¿Cuál es la magnitud de la velocidad? Si es menos que 10, no hay problema; déjala tal cual. Pero si es más que 10, ¡redúcela a 10!</em></p>
 
 <div data-type="exercise" id="chapter01_exercise4">
-<h5>Exercise 1.4</h5>
+<h5>Ejercicio 1.4</h5>
 
-<p>Write the <code>limit()</code> function for the <code>PVector</code> class.</p>
+<p>Escribe la función <code>limit()</code> para la clase <code>PVector</code>.</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
   void limit(float max) {
-    if (_______ &gt; _______) {
+    if (_______ >; _______) {
       _________();
       ____(max);
     }
   }</pre>
 </div>
 
-<p>Let’s take a look at the changes to the <code>Mover</code> class, complete with <code>acceleration</code> and <code>limit()</code>.</p>
+<p>Miremos los cambios que hemos hecho en la clase <code>Movedor</code>, incluyendo la <code>aceleración</code> y <code>limit()</code>.</p>
 
 <figure class="screenshot" data-pde="processingjs/chapter01/_1_8_motion101_acceleration/_1_8_motion101_acceleration.pde processingjs/chapter01/_1_8_motion101_acceleration/Mover.pde"><img alt="ch01 ex08" src="chapter01/ch01_ex08.png" />
 <figcaption>&nbsp;</figcaption>
 </figure>
 
-<div data-type="example"><h5>Example 1.8: Motion 101 (velocity and constant acceleration)</h5></div>
+<div data-type="example"><h5>Ejemplo 1.8: Movimiento 101 (velocidad y aceleración constante)</h5></div>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-class Mover {
+class Movedor {
 
-  PVector position;
-  PVector velocity;
-  // Acceleration is the key!
-  PVector acceleration;
+  PVector posicion;
+  PVector velocidad;
+  // La aceleración es clave!
+  PVector aceleracion;
 
-  //{!1} The variable topspeed will limit the magnitude of velocity.
-  float topspeed;
+  //{!1} La variable veloMax limitará la magnitud de velocidad.
+  float veloMax;
 
-  Mover() {
-    position = new PVector(width/2, height/2);
-    velocity = new PVector(0, 0);
-    acceleration = new PVector(-0.001, 0.01);
-    topspeed = 10;
+  Movedor() {
+    posicion = new PVector(width/2, height/2);
+    velocidad = new PVector(0, 0);
+    aceleracion = new PVector(-0.001, 0.01);
+    veloMax = 10;
   }
 
-  void update() {
-    //{!2} Velocity changes by acceleration and is limited by topspeed.
-    velocity.add(acceleration);
-    velocity.limit(topspeed);
-    position.add(velocity);
+  void actualizar() {
+    //{!2} La velocidad cambia por la aceleración y es limitada por veloMax.
+    velocidad.add(aceleracion);
+    velocidad.limit(veloMax);
+    posicion.add(velocidad);
   }
 
-  // display() is the same.
-  void display() {}
+  // mostrar() es lo mismo.
+  void mostrar() {}
 
-  //{!1} checkEdges() is the same.
-  void checkEdges() {}
+  //{!1} revisaBordes() es lo mismo.
+  void revisaBordes() {}
 }</pre>
 
 <div data-type="exercise" id="chapter01_exercise5">
-<h5>Exercise 1.5</h5>
+<h5>Ejercicio 1.5</h5>
 
-<p>Create a simulation of a car (or runner) that accelerates when you press the up key and brakes when you press the down key.</p>
+<p>Crea una simulación de un auto (o un atleta) que acelere cuando presiones la flecha hacia arriba y que frene cuando presiones la flecha hacia abajo en tu teclado.</p>
 </div>
 
 <a data-primary="acceleration algorithms" data-secondary="random" data-type="indexterm"></a>
 
-<p>Now on to Algorithm #2, <em>a totally random acceleration</em>. In this case, instead of initializing acceleration in the object’s constructor, we want to pick a new acceleration each cycle, i.e. each time <code>update()</code> is called.</p>
+<p>Ahora pasando al Algorithm #2, <em>aceleración completamente aleatoria</em>. En este caso, en vez de inicializar la aceleración en el constructor del objeto, vamos a elegir un valor de aceleración en cada ciclo, es decir, cada vez que se ejecute <code>actualizar()</code>.</p>
 
 <figure class="screenshot" data-pde="processingjs/chapter01/_1_9_motion101_acceleration/_1_9_motion101_acceleration.pde processingjs/chapter01/_1_9_motion101_acceleration/Mover.pde"><img alt="ch01 ex09" src="chapter01/ch01_ex09.png" />
 <figcaption>&nbsp;</figcaption>
 </figure>
 
-<div data-type="example"><h5>Example 1.9: Motion 101 (velocity and random acceleration)</h5></div>
+<div data-type="example"><h5>Ejemplo 1.9: Motion 101 (velocity and random acceleration)</h5></div>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
   void update() {
