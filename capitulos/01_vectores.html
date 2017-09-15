@@ -39,7 +39,7 @@
 <div data-type="example"><h5>Ejemplo 1.1: Pelota saltarina sin vectores</h5></div>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-// Variables para ubicación y velocidad de la pelota.
+// Variables para posición y velocidad de la pelota.
 float x = 100;
 float y = 100;
 float velocidadX = 1;
@@ -68,7 +68,7 @@ void draw() {
 
   stroke(0);
   fill(175);
-  // {!1} Muestra la pelota en su ubicación (x,y).
+  // {!1} Muestra la pelota en su posición (x,y).
   ellipse(x,y,16,16);
 }</pre>
 
@@ -76,7 +76,7 @@ void draw() {
 
 <div data-type="note">
 <dl>
-	<dt>Ubicación</dt>
+	<dt>posición</dt>
 	<dd>
 	<p><em>x e y</em></p>
 	</dd>
@@ -95,7 +95,7 @@ void draw() {
 	<dd>
 	<p><em>aceleracionX e aceleracionY</em></p>
 	</dd>
-	<dt>Ubicación del objetivo</dt>
+	<dt>posición del objetivo</dt>
 	<dd>
 	<p><em>objetivoX y objetivoY</em></p>
 	</dd>
@@ -110,7 +110,7 @@ void draw() {
 </dl>
 </div>
 
-<p>Está quedando cada vez más claro, que para cada concepto en este mundo (viento, ubicación, aceleración, etc.), necesitaremos dos variables. Y esto es sólo un mundo bidimensional. En un mundo tridimensional, necesitaremos <code>x</code>, <code>y</code>, <code>z</code>, <code>velocidadX</code>, <code>velocidadY</code>, <code>velocidadZ</code>, etc.</p>
+<p>Está quedando cada vez más claro, que para cada concepto en este mundo (viento, posición, aceleración, etc.), necesitaremos dos variables. Y esto es sólo un mundo bidimensional. En un mundo tridimensional, necesitaremos <code>x</code>, <code>y</code>, <code>z</code>, <code>velocidadX</code>, <code>velocidadY</code>, <code>velocidadZ</code>, etc.</p>
 
 <p>¿No sería agradable poder simplificar nuestro códgio y usar menos variables?</p>
 
@@ -125,7 +125,7 @@ float velocidadY;</pre>
 <p>Podríamos simplemente tener…</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-Vector ubicacion;
+Vector posicion;
 Vector velocidad;</pre>
 
 <p>Dar este primer paso en el uso de vectores no nos permitirá hacer nada nuevo. Tan sólo añadiendo vectores no hará que mágicamente nuestro sketch de Processing simule la física. Sin embargo, ellos simplificarán tu código y te proporcionarán un conjunto de funciones para operaciones matemáticas comunes que suceden una y otra vez mientras programas el movimiento.</p>
@@ -171,23 +171,23 @@ Vector velocidad;</pre>
 
 <p>Por cada cuadro:</p>
 
-<p><strong><em>nueva ubicación = velocidad aplicada a la ubicación actual</em></strong></p>
+<p><strong><em>nueva posición = velocidad aplicada a la posición actual</em></strong></p>
 
 <a data-primary="locations" data-secondary="as vectors" data-type="indexterm"></a> <a data-primary="vectors" data-secondary="locations and" data-type="indexterm"></a> <a data-primary="vectors" data-secondary="velocity and" data-type="indexterm"></a> <a data-primary="velocity" data-secondary="as vector" data-type="indexterm"></a>
 
-<p>Si velocidad es un vector (la diferencia entre dos puntos), entonces ¿qué es ubicación? Y ¿qué es un vector? Técnicamente, podríamos argumentar que la posición no es un vector, ya que describe cómo moverse de un punto a otro - sólo describe un punto individual en el espacio.</p>
+<p>Si velocidad es un vector (la diferencia entre dos puntos), entonces ¿qué es posición? Y ¿qué es un vector? Técnicamente, podríamos argumentar que la posición no es un vector, ya que describe cómo moverse de un punto a otro - sólo describe un punto individual en el espacio.</p>
 
-<p>Sin embargo, otra forma de describir una ubicación, es el camino desde el origen hasta llegar a esa ubicación. Por lo tanto, una ubicación puede ser el vector representando la diferencia entre ubicación y origen.</p>
+<p>Sin embargo, otra forma de describir una posición, es el camino desde el origen hasta llegar a esa posición. Por lo tanto, una posición puede ser el vector representando la diferencia entre posición y origen.</p>
 
 <figure id="chapter01_figure4"><img alt="Figure 1.4" src="chapter01/ch01_04.png" />
 <figcaption>Figura 1.4</figcaption>
 </figure>
 
-<p>Examinemos datos subyacentes para ambas, ubicación y velocidad. En el ejemplo de la pelota que rebota teníamos los siguiente:</p>
+<p>Examinemos datos subyacentes para ambas, posición y velocidad. En el ejemplo de la pelota que rebota teníamos los siguiente:</p>
 
 <div data-type="note">
 <dl>
-	<dt>Ubicación</dt>
+	<dt>posición</dt>
 	<dd>
 	<p><em>x,y</em></p>
 	</dd>
@@ -226,12 +226,12 @@ float velocidadY = 3.3;</pre>
 <p>Se transforma en esto…</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-PVector ubicacion = new PVector(100,100);
+PVector posicion = new PVector(100,100);
 PVector velocidad = new PVector(1,3.3);</pre>
 
 <a data-primary="vectors" data-secondary="motion" data-tertiary="implementing with" data-type="indexterm"></a>
 
-<p>Ahora que tenemos dos objetos tipo vector (ubicacion y velocidad), estamos listsos para implementar un algoritmo para el movimiento - <strong><em>ubicacion = ubicacion + velocidad</em></strong>. En el ejemplo 1.1, sin vectores, teníamos:</p>
+<p>Ahora que tenemos dos objetos tipo vector (posicion y velocidad), estamos listsos para implementar un algoritmo para el movimiento - <strong><em>posicion = posicion + velocidad</em></strong>. En el ejemplo 1.1, sin vectores, teníamos:</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
 // Agrega cada velocidad a cada ubicacióm
@@ -241,8 +241,8 @@ y = y + velocidadY;</pre>
 <p>En un miundo ideal, podríamos reescribir lo anterior de esta forma:</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-// Agrega el vector de velocidad al vector de ubicación
-ubicacion = ubicacion + velocidad;</pre>
+// Agrega el vector de velocidad al vector de posición
+posicion = posicion + velocidad;</pre>
 
 <a data-primary="addition operator" data-type="indexterm"></a>
 
@@ -355,12 +355,12 @@ class PVector {
 
 <a data-primary="bouncing ball sketch" data-secondary="implementing with vectors" data-type="indexterm"></a>
 
-<p>Ahora que vimos cómo <code>add()</code> está escrita dentro de <code>PVector</code>, podemos volver a nuestro ejemplo de la pelota saltarina con su algoritmo de <strong><em>ubicación + velocidad</em></strong> e implementarle una adición de vectores:</p>
+<p>Ahora que vimos cómo <code>add()</code> está escrita dentro de <code>PVector</code>, podemos volver a nuestro ejemplo de la pelota saltarina con su algoritmo de <strong><em>posición + velocidad</em></strong> e implementarle una adición de vectores:</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-// {!1 .line-through}Suma la velocidad actual a la ubicación.
-ubicacion = ubicacion + velocidad;
-ubicacion.add(velocidad);</pre>
+// {!1 .line-through}Suma la velocidad actual a la posición.
+posicion = posicion + velocidad;
+posicion.add(velocidad);</pre>
 
 <p>Y aquí estamos listos para reescribir el ejemplo de la pelota saltarina usando <code>PVector</code>.</p>
 
@@ -370,51 +370,51 @@ ubicacion.add(velocidad);</pre>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
 //{!2 .bold} En vez de muchos floats, ahora tenemos solo dos variables PVector.
-PVector ubicacion;
+PVector posicion;
 PVector velocidad;
 
 void setup() {
   size(640,360);
   //{!2 .bold .no-comment}
-  ubicacion = new PVector(100, 100);
+  posicion = new PVector(100, 100);
   velocidad = new PVector(2.5, 5);
 }
 
 void draw() {
   background(255);
   //{!1 .bold .no-comment}
-  ubicacion.add(velocidad);
+  posicion.add(velocidad);
 
-  //{!6 .bold} A veces, aún necesitaremos referirnos a los componentes individuales de un PVector. Para hacerlo se debe nombrar el objeto, seguido por un punto, y finalmente nombrar el componente al cual se quiere acceder; conocido como notación de punto: ubicacion.x, velocidad.y, etc.
-  if ((ubicacion.x > width) || (ubicacion.x < 0)) {
+  //{!6 .bold} A veces, aún necesitaremos referirnos a los componentes individuales de un PVector. Para hacerlo se debe nombrar el objeto, seguido por un punto, y finalmente nombrar el componente al cual se quiere acceder; conocido como notación de punto: posicion.x, velocidad.y, etc.
+  if ((posicion.x > width) || (posicion.x < 0)) {
     velocidad.x = velocidad.x * -1;
   }
-  if ((ubicacion.y > height) || (ubicacion.y < 0)) {
+  if ((posicion.y > height) || (posicion.y < 0)) {
     velocidad.y = velocidad.y * -1;
   }
 
   stroke(0);
   fill(175);
-  ellipse(ubicacion.x, ubicacion.y, 16, 16);
+  ellipse(posicion.x, posicion.y, 16, 16);
 }</pre>
 
 <p>Ahora, podrías sentirte un poco decepcionado. Después de todo, esto podría parecer que inicialmente hizo el código más complicado que la versión original. Aunque esta es una crítica perfectamente razonable, es importante entender que todavía no nos hemos dado cuenta realmente del poder de programar con vectores. Mirar una simple pelota saltarina e implementar la suma de vectores, es sólo el primer paso. Mientras nos adentramos en un mundo mucho más complejo de múltiples objetos y múltiples <strong><em>fuerzas</em></strong> (las cuales introduciremos en el Capítulo 2), los beneficios de <code>PVector</code> se harán notar cada vez más.</p>
 
-<p>Sin embargo, debemos notar un aspecto importante de la transición a programar con vectores. Aunque estamos usando objetos <code>PVector</code> para describir los valores —la <code>x</code> e <code>y</code> de ubicación y la <code>x</code> e <code>y</code> de velocidad— todavía necesitaremos referirnos a los componentes <em>x</em> e <em>y</em> de cada <code>PVector</code> individualmente. Cuando vayamos a Processing para dibujar un objeto, no hay necesidad de decir:</p>
+<p>Sin embargo, debemos notar un aspecto importante de la transición a programar con vectores. Aunque estamos usando objetos <code>PVector</code> para describir los valores —la <code>x</code> e <code>y</code> de posición y la <code>x</code> e <code>y</code> de velocidad— todavía necesitaremos referirnos a los componentes <em>x</em> e <em>y</em> de cada <code>PVector</code> individualmente. Cuando vayamos a Processing para dibujar un objeto, no hay necesidad de decir:</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
 // {.line-through .no-comment}
-ellipse(ubicacion, 16, 16);</pre>
+ellipse(posicion, 16, 16);</pre>
 
 <p>La función <code>ellipse()</code> no permite usar un <code>PVector</code> como argumento. Una elipse puede ser dibujada sólo con dos valores escalares, una coordenada en <code>x</code> y una coordenada en <code>y</code>. Entonces debemos meternos dentro del objeto <code>PVector</code> y sacar los componentes <em>x</em> e <em>y</em> usando la <em>notación de punto</em> orientada a objetos.</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-ellipse(ubicacion.x, ubicacion.y, 16, 16);</pre>
+ellipse(posicion.x, posicion.y, 16, 16);</pre>
 
-<p>La misma cuestión surge cuando probamos si el círculo ha llegado al borde de la ventana, y debemos acceder a los componentes individuales de ambos vectores: <code>ubicacion</code> y <code>velocidad</code>.</p>
+<p>La misma cuestión surge cuando probamos si el círculo ha llegado al borde de la ventana, y debemos acceder a los componentes individuales de ambos vectores: <code>posicion</code> y <code>velocidad</code>.</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-if ((ubicacion.x > width) || (ubicacion.x < 0)) {
+if ((posicion.x > width) || (posicion.x < 0)) {
   velocidad.x = velocidad.x * -1;
 }</pre>
 
@@ -527,7 +527,7 @@ if ((ubicacion.x > width) || (ubicacion.x < 0)) {
     y = y - v.y;
   }</pre>
 
-<p>El siguiente ejemplo demuestra la substracción de vectores tomando la diferencia entre dos puntos—la ubicación del mouse y el centro de la ventana. Nota el uso de <code>translate </code> para visualizar el vector resultante como una línea desde el centro (width/2, height/2) hacia el mouse.</p>
+<p>El siguiente ejemplo demuestra la substracción de vectores tomando la diferencia entre dos puntos—la posición del mouse y el centro de la ventana. Nota el uso de <code>translate </code> para visualizar el vector resultante como una línea desde el centro (width/2, height/2) hacia el mouse.</p>
 
 <figure class="screenshot" data-pde="processingjs/chapter01/_1_3_vector_subtraction/_1_3_vector_subtraction.pde"><img alt="ch01 ex03" src="chapter01/ch01_ex03.png" />
 <figcaption>&nbsp;</figcaption>
@@ -542,7 +542,7 @@ void setup() {
 
 void draw() {
   background(255);
-  //Dos PVectors, uno para la ubicación del mouse y uno para el centro de la ventana
+  //Dos PVectors, uno para la posición del mouse y uno para el centro de la ventana
   PVector mouse  = new PVector(mouseX, mouseY);
   PVector centro = new PVector(width/2, height/2);
 
@@ -902,7 +902,7 @@ class Movedor {
 
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-  void revisaBordes() {
+  void revisarBordes() {
     //{!11} Cuando lega a un borde, configura la posición para el borde opuesto.
     if (posicion.x > width) {
       posicion.x = 0;
@@ -957,7 +957,7 @@ movedor.mostrar();</pre>
 
     //{!3} Llamar las funciones del objeto Movedor
     movedor.actualizar();
-    movedor.revisaBordes();
+    movedor.revisarBordes();
     movedor.mostrar();
   }
 
@@ -985,7 +985,7 @@ movedor.mostrar();</pre>
       ellipse(posicion.x, posicion.y, 16, 16);
     }
 
-    void revisaBordes() {
+    void revisarBordes() {
       //{!11} Cuando lega a un borde, configura la posición para el borde opuesto.
       if (posicion.x > width) {
         posicion.x = 0;
@@ -1138,8 +1138,8 @@ class Movedor {
   // mostrar() es lo mismo.
   void mostrar() {}
 
-  //{!1} revisaBordes() es lo mismo.
-  void revisaBordes() {}
+  //{!1} revisarBordes() es lo mismo.
+  void revisarBordes() {}
 }</pre>
 
 <div data-type="exercise" id="chapter01_exercise5">
@@ -1156,53 +1156,53 @@ class Movedor {
 <figcaption>&nbsp;</figcaption>
 </figure>
 
-<div data-type="example"><h5>Ejemplo 1.9: Motion 101 (velocity and random acceleration)</h5></div>
+<div data-type="example"><h5>Ejemplo 1.9: Movimiento 101 (velocidad y aceleración aleatoria)</h5></div>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-  void update() {
+  void actualizar() {
 
-    //{!1} The random2D() function will give us a PVector of length 1 pointing in a random direction.
-    acceleration = PVector.random2D();
+    //{!1} La función random2D() devolverá un PVector de largo 1, apuntando a una dirección aleatoria.
+    aceleracion = PVector.random2D();
 
-    velocity.add(acceleration);
-    velocity.limit(topspeed);
-    position.add(velocity);
+    velocidad.add(aceleracion);
+    velocidad.limit(veloMax);
+    posicion.add(velocidad);
   }</pre>
 
-<p>Because the random vector is a normalized one, we can try scaling it:</p>
+<p>Como nuestro vector aleatorio está normalizado, podemos intentar escalarlo:</p>
 
-<p>(a) scaling the acceleration to a constant value</p>
-
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-acceleration = PVector.random2D();
-//{.bold} Constant
-acceleration.mult(0.5);</pre>
-
-<p>(b) scaling the acceleration to a random value</p>
+<p>(a) escalar la aceleración a un valor constante</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-acceleration = PVector.random2D();
-//{.bold} Random
-acceleration.mult(random(2));</pre>
+aceleracion = PVector.random2D();
+//{.bold} Constante
+aceleracion.mult(0.5);</pre>
 
-<p>While this may seem like an obvious point, it’s crucial to understand that acceleration does not merely refer to the <em>speeding up</em> or <em>slowing down</em> of a moving object, but rather <em>any change</em> in velocity in either magnitude or direction. Acceleration is used to steer an object, and we’ll see this again and again in future chapters as we begin to program objects that make decisions about how to move about the screen.</p>
+<p>(b) escalar la aceleración a un valor aleatorio</p>
+
+<pre data-code-language="java" data-type="programlisting" class="codesplit">
+aceleracion = PVector.random2D();
+//{.bold} Aleatorio
+aceleracion.mult(random(2));</pre>
+
+<p>Aunque esto parezca obvio, es crucial entender que la aceleración no se refiere solamente a <em>ir más rápido</em> ni tampoco a <em>ir más lento</em>, sino a <em>todo y cualquier cambio</em> en a velocidad, ya sea en magnitud como en dirección. La aceleración se usa entonces para conducir a un objeto, pero esto lo volveremos a revisar una y otra vez en capítulos futuros cuando programemos objetos que tomen sus propias decisiones sobre cómo moverse en la pantalla.</p>
 
 <div data-type="exercise" id="chapter01_exercise6">
-<h5>Exercise 1.6</h5>
+<h5>Ejercicio 1.6</h5>
 
-<p>Referring back to the <a href="#intro_section6">Introduction</a>, implement acceleration according to Perlin noise.</p>
+<p>Puedes volver a revisar la <a href="#intro_section6">Introducción</a>, para ahora implementarla aceleración utilizando ruido Perlinano.</p>
 </div>
 </section>
 </section>
 
 <section data-type="sect1" id="chapter01_section9">
-<h2>1.9 Static vs. Non-Static Functions</h2>
+<h2>1.9 funciones Estáticas vs. No Estáticas</h2>
 
 <a data-primary="functions" data-secondary="static vs. non-static" data-type="indexterm"></a> <a data-primary="methods" data-secondary="static vs. non-static" data-type="indexterm"></a> <a data-primary="Processing" data-secondary="static vs. non-static methods" data-type="indexterm"></a>
 
-<p>Before we get to Algorithm #3 (<em>accelerate towards the mouse</em>), we need to cover one more rather important aspect of working with vectors and the <code>PVector</code> class: the difference between using <strong><em>static</em></strong> methods and <strong><em>non-static</em></strong> methods.</p>
+<p>Antes de entrar al Algoritmo #3 (<em>acelerar hacia el mouse</em>), tenemos que cubrir un aspecto importante respecto a trabajar con vectores y la clase <em>PVector</em>: la diferencia entre utilizar métodos <em>estáticos</em> y métodos <em>no estáticos</em>.</p>
 
-<p>Forgetting about vectors for a moment, take a look at the following code:</p>
+<p>Olvidémosnos de los vectores por un momento, y revisemos el siguiente código:</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
 float x = 0;
@@ -1210,32 +1210,31 @@ float y = 5;
 
 x = x + y;</pre>
 
-<p>Pretty simple, right? <code>x</code> has the value of 0, we add <code>y</code> to it, and now <code>x</code> is equal to 5. We could write the corresponding code pretty easily based on what we’ve learned about <code>PVector</code>.</p>
+<p>Bastante simple, ¿cierto>? <code>x</code> tiene valor 0, y le agregamos <code>y</code>, por lo que ahora <code>x</code> es igual a 5. Considerando lo que hemos aprendido sobre la clase <em>PVector</em>, podríamos reescribir el código fácilmente así:</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
 PVector v = new PVector(0, 0);
 PVector u = new PVector(4, 5);
 v.add(u);</pre>
 
-<p>The vector <code>v</code> has the value of (0,0), we add <code>u</code> to it, and now <code>v</code> is equal to (4,5). Easy, right?</p>
+<p>El vector <code>v</code> tiene valor (0,0), y al agregarle <code>u</code>, ahora <code>v</code> es igual a (4,5). Simple, ¿cierto?</p>
 
-<p>Let’s take a look at another example of some simple floating point math:</p>
-
+<p>Miremos otro ejemplo con simple matemática de coma flotante.</p>
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
 float x = 0;
 float y = 5;
 
 float z = x + y;</pre>
 
-<p><code>x</code> has the value of 0, we add <code>y</code> to it, and store the result in a new variable <code>z</code>. The value of <code>x</code> does not change in this example (neither does <code>y</code>)! This may seem like a trivial point, and one that is quite intuitive when it comes to mathematical operations with floats. However, it’s not so obvious with mathematical operations in <code>PVector</code>. Let’s try to write the code based on what we know so far.</p>
+<p><code>x</code> tiene valor 0, le agregamos <code>y</code>para luego guardar el resultado en una nueva variable <code>z</code>. El valor de <code>x</code> no cambia en este ejemplo (ni tampoco lo hace el valor de <code>y</code>). Esto puede parecer trivial, y algo bastante intuitivo con hablamos de operaciones matemáticas con enteros y decimales. Sin embargo, no es tan obvio en las operaciones matemáticas dentro de <code>PVector</code>. Escribamos el código de acuerdo a lo que sabemos hasta ahora.</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
 PVector v = new PVector(0,0);
 PVector u = new PVector(4,5);
-//{.line-through} Don’t be fooled; this is incorrect!!!
+//{.line-through} No te dejes engañar; ¡esto es incorecto!
 PVector w = v.add(u);</pre>
 
-<p>The above might seem like a good guess, but it’s just not the way the <code>PVector</code> class works. If we look at the definition of <code>add()</code> . . .</p>
+<p>Aunque esto puede parecer correcto, no lo es, por la forma en que funciona la clase <code>PVector</code>. Si miramos la definición de <code>add()</code> . . . </p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
 void add(PVector v) {
@@ -1243,43 +1242,44 @@ void add(PVector v) {
   y = y + v.y;
 }</pre>
 
-<p>we see that this code does not accomplish our goal. First, it does not return a new <code>PVector</code> (the return type is “void”) and second, it changes the value of the <code>PVector</code> upon which it is called. In order to add two <code>PVector</code> objects together and return the result as a new <code>PVector</code>, we must use the static <code>add()</code> function.</p>
+<p>veremos que este código no cumple nuestro objetivo. Primero, no devuelve un nuevo <code>PVector</code> (porque el tipo de <em>return</em> es "void") y segundo, porque modifica el valor del <code>PVectoer</code> mismo sbre el cual se llamó la función. Para poder sumar ambos objetos <code>PVector</code> y devolver el resultado como un nuevo <code>Pvector</code>, debemos utilizar el modo estático de la función <code>add()</code>.</p>
 
 <a data-primary="static functions" data-type="indexterm"></a>
 
-<p>Functions that we call from the class name itself (rather than from a speciﬁc object instance) are known as <strong><em>static functions</em></strong>. Here are two examples of function calls that assume two <code>PVector</code> objects, <code>v</code> and <code>u</code>:</p>
+<p>Las funciones que llamamos desde el nombre mismo de la clase (a diferencia de llamarlas sobre instancias específicas de un objeto) se conocen como <strong><em>funciones estáticas</em></strong>. A continuación veamos dos ejemplos de funciones utilizando los objetos <code>PVector</code>, llamados <code>v</code> y <code>u</code>:</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-// Static: called from the class name.
+// Estática: invocada desde el nombre de la clase.
 PVector.add(v, u);
 
-// Not static: called from an object instance.
+// No estática: invocada desde la instancia de un objeto
 v.add(u);</pre>
 
-<p>Since you can’t write static functions yourself in Processing, you might not have encountered them before. <code>PVector</code>'s static functions allow us to perform generic mathematical operations on <code>PVector</code> objects without having to adjust the value of one of the input <code>PVector</code><code>s</code>. Let’s look at how we might write the static version of <code>add()</code>:</p>
+<p>Dado que tú no puedes escribir funciones estáticas en Processing, es probable que no las hubieras visto antes. Las funciones estáticas de <code>PVector</code> nos permiten realizar operaciones matemáticas en objetos <code>PVector</code> sin alterar los valores de ninguno de los objetos <code>PVector</code> utilizados en la operación. Veamos cómo podríamos escribir la versión estática de la función <code>add()</code>:</p>
+
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-  //{!1} The static version of add allows us to add two PVectors together and assign the result to a new PVector while leaving the original PVectors (v and u above) intact.
+  //{!1} La versión estática de add permite sumar dos PVectors y asignar el resultado a un nuevo PVector, manteniendo intactos los PVectors originales.
   static PVector add(PVector v1, PVector v2) {
     PVector v3 = new PVector(v1.x + v2.x, v1.y + v2.y);
     return v3;
   }</pre>
 
-<p>There are several differences here:</p>
+<p>Vemos varias diferencias:</p>
 
 <ul>
 	<li>
-	<p>The function is labeled as <strong><em>static</em></strong>.</p>
+	<p>La función está etiquetada como <strong><em>static</em></strong>.</p>
 	</li>
 	<li>
-	<p>The function does not have a <strong><em>void</em></strong> return type, but rather returns a <code>PVector</code>.</p>
+	<p>La función no tiene un tipo de retorno <strong><em>void</em></strong> sin que, devuelve o entrega un <code>PVector</code> como resultado.</p>
 	</li>
 	<li>
-	<p>The function creates a new <code>PVector</code> (<code>v3</code>) and returns the sum of the components of <code>v1</code> and <code>v2</code> in that new <code>PVector</code>.</p>
+	<p>La función crea un nuevo <code>PVector</code> (<code>v3</code>) y devuelve la suma de los componentes de <code>v1</code> y <code>v2</code> en el nuevo <code>PVector</code>.</p>
 	</li>
 </ul>
 
-<p>When you call a static function, instead of referencing an actual object instance, you simply reference the name of the class itself.</p>
+<p>Cuando ejecutas una función estática, en vez de referenciar y afectar con la función a la instancia del objeto, simplemente referencias el nombre de la clase misma.</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
 PVector v = new PVector(0, 0);
@@ -1289,25 +1289,25 @@ PVector w = v.add(u);
 //{.bold .no-comment}
 PVector w = PVector.add(v, u);</pre>
 
-<p>The <code>PVector</code> class has static versions of <code>add()</code>, <code>sub()</code>, <code>mult()</code>, and <code>div()</code>.</p>
+<p>La clase <code>PVector</code> tiene versiones estáticas de <code>add()</code>, <code>sub()</code>, <code>mult()</code>, y <code>div()</code>.</p>
 
 <div data-type="exercise" id="chapter01_exercise7">
-<h5>Exercise 1.7</h5>
+<h5>Ejercicio 1.7</h5>
 
-<p>Translate the following pseudocode to code using static or non-static functions where appropriate.</p>
+<p>Transforma el siguiente pseudocódigo a código utilizando funciones estáticas y no estáticas según corresponda.</p>
 
 <ul>
 	<li>
-	<p>The <code>PVector</code> <code>v</code> equals (1,5).</p>
+	<p>El <code>PVector</code> <code>v</code> vale (1,5).</p>
 	</li>
 	<li>
-	<p>The <code>PVector</code> <code>u</code> equals <code>v</code> multiplied by 2.</p>
+	<p>El <code>PVector</code> <code>u</code> vale <code>v</code> multiplicado por 2.</p>
 	</li>
 	<li>
-	<p>The <code>PVector</code> <code>w</code> equals <code>v</code> minus <code>u</code>.</p>
+	<p>El <code>PVector</code> <code>w</code> vale <code>v</code> menos <code>u</code>.</p>
 	</li>
 	<li>
-	<p>Divide the <code>PVector</code> w by 3.</p>
+	<p>divide el <code>PVector</code> w por 3.</p>
 	</li>
 </ul>
 
@@ -1320,23 +1320,25 @@ ___________;</pre>
 </section>
 
 <section data-type="sect1" id="chapter01_section10">
-<h2>1.10 Interactivity with Acceleration</h2>
+<h2>1.10 Interactividad con Aceleración</h2>
 
 <a data-primary="acceleration algorithms" data-secondary="interactive" data-type="indexterm"></a>
 
 <figure class="half-width-right" id="chapter01_figure14"><img alt="Figure 1.14" src="chapter01/ch01_14.png" />
-<figcaption>Figure 1.14</figcaption>
+<figcaption>Figura 1.14</figcaption>
 </figure>
 
-<p>To finish out this chapter, let’s try something a bit more complex and a great deal more useful. We’ll dynamically calculate an object’s acceleration according to a rule stated in Algorithm #3 — <em>the object accelerates towards the mouse</em>.</p>
+<p>Para terminar este capítulo, tratemos algo un poco más complejo y mucho más útil. Calcularemos dinámicamente la aceleración de un objeto, de acuerdo a la regla fijada en el Algoritmo #3 — el objeto acelera hacia el mouse.
+</p>
 
-<p>Anytime we want to calculate a vector based on a rule or a formula, we need to compute two things: <strong><em>magnitude</em></strong> and <strong><em>direction</em></strong>. Let’s start with direction. We know the acceleration vector should point from the object’s position towards the mouse position. Let’s say the object is located at the point (<code>x</code>,<code>y</code>) and the mouse at (<code>mouseX</code>,<code>mouseY</code>).</p>
+<p>En cualquier momento que queramos calcular un vector basado en una regla o una fórmula, tenemos que calcular dos cosas: <strong><em>magnitud</em></strong> y <strong><em>dirección</em></strong> Empecemos con la dirección. Sabemos que el vector de aceleración debería apuntar desde la posición del objeto hacia la posición del mouse. Digamos que el objeto está ubicado en el punto (<code>x</code>,<code>y</code>) y el mouse está en el (<code>mouseX</code>,<code>mouseY</code>).
+</p>
 
 <figure class="half-width-right" id="chapter01_figure15"><img alt="Figure 1.15" src="chapter01/ch01_15.png" />
-<figcaption>Figure 1.15</figcaption>
+<figcaption>Figura 1.15</figcaption>
 </figure>
 
-<p>In Figure 1.15, we see that we can get a vector (<code>dx</code>,<code>dy</code>) by subtracting the object’s position from the mouse’s position.</p>
+<p>En la Figura 1.15, vemos que podemos obtener un vector (<code>dx</code>,<code>dy</code>) si restamos la posición del objeto con la posición del mouse.</p>
 
 <ul>
 	<li>
@@ -1347,131 +1349,132 @@ ___________;</pre>
 	</li>
 </ul>
 
-<p>Let’s rewrite the above using <code>PVector</code> syntax. Assuming we are in the <code>Mover</code> class and thus have access to the object’s <code>PVector position</code>, we then have:</p>
+<p>Volvamos a escribir lo anterior usando la sintaxis de <code>PVector</code>. Asumiendo que estamos en la clase <code>Movedor</code> y por lo tanto tenemos acceso al <code>PVector posicion</code> del objeto, entonces tenemos:
+</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
 PVector mouse = new PVector(mouseX,mouseY);
-// Look! We’re using the static reference to sub() because we want a new PVector pointing from one point to another.
-PVector dir = PVector.sub(mouse, position);</pre>
+// ¡Mira! Estamos usando la referencia estática para sub() porque queremos un nuevo PVector aputando de un punto hacia otro.
+PVector dir = PVector.sub(mouse, posicion);</pre>
 
-<p>We now have a <code>PVector</code> that points from the mover’s position all the way to the mouse. If the object were to actually accelerate using that vector, it would appear instantaneously at the mouse position. This does not make for good animation, of course, and what we want to do now is decide how quickly that object should accelerate toward the mouse.</p>
+<p>Ahora tenemos un <code>PVector</code> que apunta desde la posición del Movedor hasta la posición del mouse. Si el objeto, realmente fuera a acelerar usando ese vector, aparecería instantáneamente en la posición del mouse. Esto no hace una buena animación, y lo que queremos hacer ahora es decidir qué tan rápido ese objeto debería acelerar hacia el mouse.</p>
 
-<p>In order to set the magnitude (whatever it may be) of our acceleration <code>PVector</code>, we must first <em>_</em> that direction vector. That’s right, you said it. <em>Normalize</em>. If we can shrink the vector down to its unit vector (of length one) then we have a vector that tells us the direction and can easily be scaled to any value. One multiplied by anything equals anything.</p>
+<p>Para obtner la magnitud (cualquiera ésta sea) de nuestro <code>PVector</code> de aceleración, primero tenemos que <em>_</em> ese vector de dirección. Exacto, tal cual. <em>Normalizar</em>. Si podemos reducir el tamaño del vector a su vector unitario (de largo uno), entonces tenemos un vector que indica la dirección, y que fácilmente podemos escalar a cualqueir valor. Uno multiplicado por algo es igual a ese algo.</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-float anything = ?????
+float algo = ?????
 dir.normalize();
-dir.mult(anything);</pre>
+dir.mult(algo);</pre>
 
-<p>To summarize, we take the following steps:</p>
+<p>Para resumir, tomamos los siguientes pasos:</p>
 
 <ol>
 	<li>
-	<p>Calculate a vector that points from the object to the target position (mouse)</p>
+	<p>Calcula un vector que apunta desde el objeto hacia la posición de destino (mouse)</p>
 	</li>
 	<li>
-	<p>Normalize that vector (reducing its length to 1)</p>
+	<p>Normaliza ese vector (reduciendo su largo a 1)</p>
 	</li>
 	<li>
-	<p>Scale that vector to an appropriate value (by multiplying it by some value)</p>
+	<p>Escalar ese vector a un valor apropiado (multiplicándolo por algún valor)</p>
 	</li>
 	<li>
-	<p>Assign that vector to acceleration</p>
+	<p>Asigna ese valor a la aceleración</p>
 	</li>
 </ol>
 
-<p>And here are those steps in the <code>update()</code> function itself:</p>
+<p>Y acá tenemos esos pasos, en la función <code>actualizar()</code>:</p>
 
 <figure class="screenshot" data-pde="processingjs/chapter01/_1_10_motion101_acceleration/_1_10_motion101_acceleration.pde processingjs/chapter01/_1_10_motion101_acceleration/Mover.pde"><img alt="ch01 ex10" src="chapter01/ch01_ex10.png" />
 <figcaption>&nbsp;</figcaption>
 </figure>
 
-<div data-type="example"><h5>Example 1.10: Accelerating towards the mouse</h5></div>
+<div data-type="example"><h5>Ejemplo 1.10: Aceleración hacia el mouse</h5></div>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
- void update() {
+ void actualizar() {
 
     PVector mouse = new PVector(mouseX, mouseY);
-    // Step 1: Compute direction
-    PVector dir = PVector.sub(mouse, position);
+    // Step 1: Clcular dirección
+    PVector dir = PVector.sub(mouse, posicion);
 
-    // Step 2: Normalize
+    // Step 2: Normalizar
     dir.normalize();
 
-    // Step 3: Scale
+    // Step 3: Escalar
     dir.mult(0.5);
 
-    //{!1} Step 4: Accelerate
-    acceleration = dir;
+    //{!1} Step 4: Acelerar
+    aceleracion = dir;
 
-    velocity.add(acceleration);
-    velocity.limit(topspeed);
-    position.add(velocity);
+    velocidad.add(aceleracion);
+    velocidad.limit(veloMax);
+    posicion.add(velocidad);
 
   }</pre>
 
-<p>You may be wondering why the circle doesn’t stop when it reaches the target. It’s important to note that the object moving has no knowledge about trying to stop at a destination; it only knows where the destination is and tries to go there as quickly as possible. Going as quickly as possible means it will inevitably overshoot the position and have to turn around, again going as quickly as possible towards the destination, overshooting it again, and so on and so forth. Stay tuned; in later chapters we’ll learn how to program an object to <strong><em>arrive</em></strong> at a position (slow down on approach).</p>
+<p>Quizás te preguntes por qué el círculo no se detiene cuando alcanza su objetivo. Es importante notar que el objeto que se mueve no tiene instrucciones sobre detenerse cuando llega a su destino; sólo sabe dónde está su destino, e intenta llegar ahí tan rápido como le es posible. Moverse tan rápido como es posible implica que inevitablemente se <em>pasará de largo</em> y deberá regresar, y nuevamente intentar alcanzarlo tan rápido coo sea posible, pasándose otra vez y así cada vez lo mismo. Quédense atentosl en unos capítulos más adelante aprenderemos cómo programar el objeto para que <strong><em>llegue</em></strong> a su destino (y también para que desacelere al hacerlo).</p>
 
-<p>This example is remarkably close to the concept of gravitational attraction (in which the object is attracted to the mouse position). Gravitational attraction will be covered in more detail in the next chapter. However, one thing missing here is that the strength of gravity (magnitude of acceleration) is inversely proportional to distance. This means that the closer the object is to the mouse, the faster it accelerates.</p>
+<p>Este ejemplo es notoriamente cercano al concepto de atracción gravitacional (en el cual un objeto es atraído a la posición del mouse). Cubriremos la Atracción Gravitacional en el próximo capítulo. Sin embargo, algo que nos falta aún es que la fuerza de gravedad (magnitud de la aceleración) es inversamente proporcional a la distancia. Esto significa que mientras más cerca este el objeto de su destino (el mouse), más rápido debe acelerar.</p>
 
 <div data-type="exercise" id="chapter01_exercise8">
-<h5>Exercise 1.8</h5>
+<h5>Ejercicio 1.8</h5>
 
-<p>Try implementing the above example with a variable magnitude of acceleration, stronger when it is either closer or farther away.</p>
+<p>Intenta implementar el ejemplo anterior, con aceleración de magnitud variable, siendo más fuerte mientras esté más cerca, o más lejos.</p>
 </div>
 
-<p>Let’s see what this example would look like with an array of movers (rather than just one).</p>
+<p>Veamos cómo se verá este ejemplo, con un arreglo de movedores (en vez de sólo uno).</p>
 
 <figure class="screenshot" data-pde="processingjs/chapter01/_1_11_motion101_acceleration_array/_1_11_motion101_acceleration_array.pde processingjs/chapter01/_1_11_motion101_acceleration_array/Mover.pde"><img alt="ch01 ex11" src="chapter01/ch01_ex11.png" />
 <figcaption>&nbsp;</figcaption>
 </figure>
 
-<div data-type="example"><h5>Example 1.11: Array of movers accelerating towards the mouse</h5></div>
+<div data-type="example"><h5>Ejemplo 1.11: Arreglo de movedores acelerando hacia el mouse</h5></div>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-//{!1} An array of objects
-Mover[] movers = new Mover[20];
+//{!1} Un arreglo de objetos
+Movedor[] movedores = new Movedor[20];
 
 void setup() {
   size(640, 360);
   background(255);
-  for (int i = 0; i &lt; movers.length; i++) {
-    //{!1} Initialize each object in the array.
-    movers[i] = new Mover();
+  for (int i = 0; i < movedores.length; i++) {
+    //{!1} Inicializa cada objeto dentro del array.
+    movedores[i] = new Movedor();
   }
 }
 
 void draw() {
   background(255);
 
-  for (int i = 0; i &lt; movers.length; i++) {
+  for (int i = 0; i < movers.length; i++) {
     //{!3} Calling functions on all the objects in the array
-    movers[i].update();
-    movers[i].checkEdges();
-    movers[i].display();
+    movedores[i].actualizar();
+    movedores[i].revisarBordes();
+    movedores[i].mostrar();
   }
 }</pre>
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-class Mover {
+class Movedor {
 
-  PVector position;
-  PVector velocity;
-  PVector acceleration;
-  float topspeed;
+  PVector posicion;
+  PVector velocidad;
+  PVector aceleracion;
+  float veloMax;
 
   Mover() {
-    position = new PVector(random(width), random(height));
-    velocity = new PVector(0, 0);
-    topspeed = 4;
+    posicion = new PVector(random(width), random(height));
+    velocidad = new PVector(0, 0);
+    veloMax = 4;
   }
 
-  void update() {
+  void actualizar() {
 
-    //{.comment-header} Our algorithm for calculating acceleration:
+    //{.comment-header} Nuestro algoritmo para calcular la aceleración:
 
-    //{!2} Find the vector pointing towards the mouse.
+    //{!2} Encuentra el vector apuntando hacia el mouse.
     PVector mouse = new PVector(mouseX, mouseY);
-    PVector dir = PVector.sub(mouse, position);
+    PVector dir = PVector.sub(mouse, posicion);
 
 
     // Normalize.
@@ -1479,49 +1482,49 @@ class Mover {
     // Scale.
     dir.mult(0.5);
     // Set to acceleration.
-    acceleration = dir;
+    aceleracion = dir;
 
-    //{!3} Motion 101! Velocity changes by acceleration.  position changes by velocity.
-    velocity.add(acceleration);
-    velocity.limit(topspeed);
-    position.add(velocity);
+    //{!3} Movimiento 101! La velocidad cambia por la aceleración. Posición cambia por la velocidad.
+    velocidad.add(aceleracion);
+    velocidad.limit(veloMax);
+    posicion.add(velocidad);
     }
 
-  // Display the Mover
-  void display() {
+  // Mostrar el Movedor
+  void mostrar() {
     stroke(0);
     fill(175);
-    ellipse(position.x,position.y,16,16);
+    ellipse(posicion.x,posicion.y,16,16);
   }
 
-  //{!13} What to do at the edges
-  void checkEdges() {
-    if (position.x &gt; width) {
-      position.x = 0;
-    } else if (position.x &lt; 0) {
-      position.x = width;
+  //{!13} Qué hacer en los bordes
+  void revisarBordes() {
+    if (posicion.x > width) {
+      posicion.x = 0;
+    } else if (posicion.x < 0) {
+      posicion.x = width;
     }
 
-    if (position.y &gt; height) {
-      position.y = 0;
-    }  else if (position.y &lt; 0) {
-      position.y = height;
+    if (posicion.y > height) {
+      posicion.y = 0;
+    }  else if (posicion.y < 0) {
+      posicion.y = height;
     }
   }
 }</pre>
 
 <figure class="screenshot" id="chapter01_figure16"><img src="chapter01/ch01_16.png" />
-<figcaption>Figure 1.16: The Ecosystem Project</figcaption>
+<figcaption>Figura 1.16: El proyecto ecosistema</figcaption>
 </figure>
 
 <div data-type="tip">
-<h2>The Ecosystem Project</h2>
+<h2>El proyecto ecosistema</h2>
 
-<p><em>As mentioned in the preface, one way to use this book is to build a single project over the course of reading it, incorporating elements from each chapter one step at a time. We’ll follow the development of an example project throughout this book—a simulation of an ecosystem. Imagine a population of computational creatures swimming around a digital pond, interacting with each other according to various rules.</em></p>
+<p><em>Como mencioné en el prefacio, una manera de usar este libro es ir creaando un proyecto mientras lo lees, incorporando elementos de cada capítulo, un paso a la vez. Seguiremos el desarrollo de un proyecto de ejemplo para el libro – la simulación de un ecosistema. Imagina una población de criaturas computacionales nadando en una laguna digital, interactuando entre ellos de acuerdo a varias reglas.</em></p>
 
-<p>Step 1 Exercise:</p>
+<p>Ejercicio Paso 1:</p>
 
-<p>Develop a set of rules for simulating the real-world behavior of a creature, such as a nervous fly, swimming fish, hopping bunny, slithering snake, etc. Can you control the object’s motion by only manipulating the acceleration? Try to give the creature a personality through its behavior (rather than through its visual design).</p>
+<p>Desarrolla un set de reglas para simular el comportamiento realista de una criatura, como una mosca nerviosa, un pez nadando, un conejo saltando, una serpeinte culebreando, etc. ¿Puedes controlar el movimiento del objeto solamente manipulando su aceleración? Trata de darle personalidad a tu ciratura, a través de su comportamiento (en vez de a través de su diseño visual).</p>
 </div>
 </section>
 </section>
