@@ -1,17 +1,20 @@
 class Movedor {
 
+  Animacion mariposa;
+  
   PVector posicion;
   PVector velocidad;
   PVector aceleracion;
   float veloMax;
 
   Movedor() {
-    posicion = new PVector(random(width), random(height));
+    posicion = new PVector(random(0, width), random(0, height));
     velocidad = new PVector(0, 0);
-    veloMax = 10;
+    veloMax = 10;   
+    mariposa = new Animacion("mariposa_", 6);
   }
 
-  void actualizar() {
+  PVector actualizar() {
 
     // Nuestro algoritmo para calcular la aceleración:
     // Encuentra el vector apuntando hacia el mouse.
@@ -32,15 +35,17 @@ class Movedor {
     velocidad.add(aceleracion);
     velocidad.limit(veloMax);
     posicion.add(velocidad);
+    
+    return dir;
   }
 
-  // Mostrar el Movedor
   void mostrar() {
     stroke(0);
     fill(175);
-    ellipse(posicion.x, posicion.y, 16, 16);
+    mariposa.mostrar(posicion.x, posicion.y, actualizar().x,actualizar().y);
+    //ellipse(posicion.x, posicion.y, 16, 16);
   }
-
+  
   // Qué hacer en los bordes
   void revisarBordes() {
     if (posicion.x > width) {

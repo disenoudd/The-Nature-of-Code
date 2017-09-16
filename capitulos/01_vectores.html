@@ -9,7 +9,7 @@
 
 <a data-primary="vectors" data-type="indexterm"></a>
 
-<p>Este libro se trata sobre mirar el mundo nuestro alrededor y encontrar maneras inteligentes de simular ese mundo con código. Dividido en tres partes, el libro comienza con un poco de física básica – cómo cae una manzana desde un árbol, cómo se balancea un péndulo, cómo la Tierra rota alrededor del Sol, etc. Absolutamente todo el contenido de los primeros cinco capítulos del libro requieren usar el bloque más básico para programar movimiento – el <strong><em>vector</em></strong>. Y así pues, aquí comenzamos nuestra historia.</p>
+<p>Este libro se trata sobre mirar el mundo a nuestro alrededor y encontrar maneras inteligentes de simular ese mundo con código. Dividido en tres partes, el libro comienza con un poco de física básica – cómo cae una manzana desde un árbol, cómo se balancea un péndulo, cómo la Tierra rota alrededor del Sol, etc. Absolutamente todo el contenido de los primeros cinco capítulos del libro requieren usar el bloque más básico para programar movimiento – el <strong><em>vector</em></strong>. Y así pues, aquí comenzamos nuestra historia.</p>
 
 <a data-primary="Euclid" data-type="indexterm"></a> <a data-primary="Euclidean vector" data-type="indexterm"></a> <a data-primary="geometric vector" data-type="indexterm"></a> <a data-primary="vectors" data-secondary="defined" data-type="indexterm"></a>
 
@@ -792,7 +792,7 @@ void normalize() {
 <figcaption>&nbsp;</figcaption>
 </figure>
 
-<div data-type="example"><h5>Example 1.6: Normalizing a vector</h5></div>
+<div data-type="example"><h5>Ejemplo 1.6: Normalizando un vector</h5></div>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
 void draw() {
@@ -1447,8 +1447,8 @@ void setup() {
 void draw() {
   background(255);
 
-  for (int i = 0; i < movers.length; i++) {
-    //{!3} Calling functions on all the objects in the array
+  for (int i = 0; i < movedores.length; i++) {
+    //{!3} Llama las funciones de cada objeto dentro del array
     movedores[i].actualizar();
     movedores[i].revisarBordes();
     movedores[i].mostrar();
@@ -1462,7 +1462,7 @@ class Movedor {
   PVector aceleracion;
   float veloMax;
 
-  Mover() {
+  Movedor() {
     posicion = new PVector(random(width), random(height));
     velocidad = new PVector(0, 0);
     veloMax = 4;

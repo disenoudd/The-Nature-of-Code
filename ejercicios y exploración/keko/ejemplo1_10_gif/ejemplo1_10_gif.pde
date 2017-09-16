@@ -8,18 +8,24 @@
  y estudiantes de Diseño UDD
  http://github.com/disenoudd/the-Nature-of-Code
  
+ MODS:
+ Llevamos clase Mover a su propio archivo
+ Agregamos clase Animacion
+ Mostrarmos un GIF animado en el lugar de la ellipse
+ https://processing.org/examples/animatedsprite.html
  */
- 
+
+// Declarar objeto Movedor
 Movedor movedor;
 
 void setup() {
-  size(640, 480);
+  size(640, 360);
   movedor = new Movedor();
-
+  frameRate(12);
 }
 void draw() {
   background(255);
   movedor.actualizar();
-  movedor.revisaBordes();
+  movedor.revisarBordes();
   movedor.mostrar();
 }
