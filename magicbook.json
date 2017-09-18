@@ -3,8 +3,11 @@
    "destination":"build/:build",
    "files":[
 <<<<<<< HEAD
+<<<<<<< HEAD
       "capitulos/Introhtml.html"
 =======
+=======
+>>>>>>> shiffman/master
       "chapters/00_1_titlepage.html",
       "chapters/00_2_dedication.html",
       "chapters/00_3_creditscopyright.html",
@@ -26,6 +29,9 @@
    "addPlugins":[
      "magicbook-codesplit",
      "magicbook-katex"
+<<<<<<< HEAD
+>>>>>>> shiffman/master
+=======
 >>>>>>> shiffman/master
    ],
    "builds":[
