@@ -30,10 +30,10 @@
 
 <a data-primary="bouncing ball sketch" data-type="indexterm"></a> <a data-primary="vectors" data-secondary="bouncing ball sketch" data-type="indexterm"></a>
 
-<p>Antes de entrar en más detalles sobre los vectores, miremos un ejemplo básico de Processing que demuestra por qué debiéramos preocuparnos de ellos en primer lugar. Si ya leíste cualquiera de los libros introductorios a Processing, o tomaste una clase de programación con Processing (si ya haz hecho alguna de esas dos cosas como preparación para este libro, mucho mejor), es probable que ya hayas aprendido a escribir un <em>sketch</em> sencillo (sketch es el documento donde escribimos el código dentro de Processing) con una pelota saltarina.</p>
+<p>Antes de entrar en más detalles sobre los vectores, miremos un ejemplo básico de Processing que demuestra por qué debiéramos preocuparnos de ellos en primer lugar. Si ya leíste cualquiera de los libros introductorios a Processing, o tomaste una clase de programación con Processing (si ya haz hecho alguna de esas dos cosas como preparación para este libro), es probable que ya hayas aprendido a escribir un <em>sketch</em> sencillo con una pelota saltarina. (<em>sketch</em> es el documento donde escribimos el código dentro de Processing).</p>
 
 <figure class="screenshot" data-pde="processingjs/chapter01/_1_1_bouncingball_novectors/_1_1_bouncingball_novectors.pde"><img alt="" src="chapter01/ch01_ex01.png" />
-<figcaption>Si estás leyendo este libro impreso o en PDF, sólo verás las imágenes estáticas. El movimiento, claramente, es un elemento clave de nuestra discusión, por lo que dentro de lo posible los pantallazos estáticos tendrán un rastro traslúcido para dar cuenta de ese comportamiento. Para saber más sobre cómo dibujar esos rastros, ve el código de ejemplo disponible para descargar.</figcaption>
+<figcaption>Si estás leyendo este libro impreso o en PDF, sólo verás las imágenes estáticas. El movimiento, claramente, es un elemento clave de nuestra discusión, por lo que dentro de lo posible las imágenes estáticas tendrán un rastro para dar cuenta de ese comportamiento. Para saber más sobre cómo dibujar esos rastros, ve el código de ejemplo disponible para descargar.</figcaption>
 </figure>
 
 <div data-type="example"><h5>Ejemplo 1.1: Pelota saltarina sin vectores</h5></div>
@@ -45,8 +45,9 @@ float y = 100;
 float xvelocidad = 1;
 float yvelocidad = 3.3;
 
-// {!4} ¿Recuerdas cómo funciona Processing? El setup() es ejecutado una vez cuando el sketch comienza a correr, y el draw() se ejecuta en bucle por siempre (hasta que cierres la ventana) {
-  size(640,360);
+// {!4} ¿Recuerdas cómo funciona Processing? setup() es ejecutado una vez cuando el sketch comienza, y draw() se ejecuta en bucle por siempre (hasta que lo cierrres).
+void setup() {
+  size(640, 360);
   background(255);
 }
 
@@ -58,17 +59,17 @@ void draw() {
   y = y + yvelocidad;
 
   // {!6} Revisa el rebote.
-  if ((x &gt; width) || (x &lt; 0)) {
+  if ((x > width) || (x < 0)) {
     xvelocidad = xvelocidad * -1;
   }
-  if ((y &gt; height) || (y &lt; 0)) {
+  if ((y > height) || (y < 0)) {
     yvelocidad = yvelocidad * -1;
   }
 
   stroke(0);
   fill(175);
-  // {!1} Muestra la pelota en su ubicación (x,y).
-  ellipse(x,y,16,16);
+  // {!1} Muestra la pelota en su ubicación (x, y).
+  ellipse(x, y, 16, 16);
 }</pre>
 
 <p>En el ejemplo anterior, tenemos un mundo muy simple —un lienzo en blanco con una figura circular (una "pelota") moviéndose. Esta pelota tiene algunas propiedades, las cuales están representadas en el código como variables.</p>
@@ -357,10 +358,10 @@ void draw() {
   ubicacion.add(velocidad);
 
   //{!6 .bold} A veces, aún necesitaremos referirnos a los componentes individuales de un PVector. Para hacerlo se debe nombrar el objeto, seguido por un punto, y finalmente nombrar el componente al cual se quiere acceder; conocido como notación de punto: ubicacion.x, velocidad.y, etc.
-  if ((ubicacion.x &gt; width) || (ubicacion.x &lt; 0)) {
+  if ((ubicacion.x > width) || (ubicacion.x < 0)) {
     velocidad.x = velocidad.x * -1;
   }
-  if ((ubicacion.y &gt; height) || (ubicacion.y &lt; 0)) {
+  if ((ubicacion.y > height) || (ubicacion.y < 0)) {
     velocidad.y = velocidad.y * -1;
   }
 
@@ -385,7 +386,7 @@ ellipse(ubicacion.x, ubicacion.y, 16, 16);</pre>
 <p>La misma cuestión surge cuando probamos si el círculo ha llegado al borde de la ventana, y debemos acceder a los componentes individuales de ambos vectores: <span class="var">ubicacion</span> y <span class="var">velocidad</span>.</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-if ((ubicacion.x &gt; width) || (ubicacion.x &lt; 0)) {
+if ((ubicacion.x > width) || (ubicacion.x < 0)) {
   velocidad.x = velocidad.x * -1;
 }</pre>
 
@@ -863,15 +864,15 @@ class Mover {
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
   void checkEdges() {
     //{!11} When it reaches one edge, set location to the other.
-    if (location.x &gt; width) {
+    if (location.x > width) {
       location.x = 0;
-    } else if (location.x &lt; 0) {
+    } else if (location.x < 0) {
       location.x = width;
     }
 
-    if (location.y &gt; height) {
+    if (location.y > height) {
       location.y = 0;
-    } else if (location.y &lt; 0) {
+    } else if (location.y < 0) {
       location.y = height;
     }
   }</pre>
@@ -943,15 +944,15 @@ class Mover {
   }
 
   void checkEdges() {
-    if (location.x &gt; width) {
+    if (location.x > width) {
       location.x = 0;
-    } else if (location.x &lt; 0) {
+    } else if (location.x < 0) {
       location.x = width;
     }
 
-    if (location.y &gt; height) {
+    if (location.y > height) {
       location.y = 0;
-    } else if (location.y &lt; 0) {
+    } else if (location.y < 0) {
       location.y = height;
     }
   }
@@ -1051,7 +1052,7 @@ velocity.limit(10);</pre>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
   void limit(float max) {
-    if (_______ &gt; _______) {
+    if (_______ > _______) {
       _________();
       ____(max);
     }
@@ -1391,7 +1392,7 @@ Mover[] movers = new Mover[20];
 void setup() {
   size(640, 360);
   background(255);
-  for (int i = 0; i &lt; movers.length; i++) {
+  for (int i = 0; i < movers.length; i++) {
     //{!1} Initialize each object in the array.
     movers[i] = new Mover();
   }
@@ -1400,7 +1401,7 @@ void setup() {
 void draw() {
   background(255);
 
-  for (int i = 0; i &lt; movers.length; i++) {
+  for (int i = 0; i < movers.length; i++) {
     //{!3} Calling functions on all the objects in the array
     movers[i].update();
     movers[i].checkEdges();
@@ -1451,15 +1452,15 @@ class Mover {
 
   //{!13} What to do at the edges
   void checkEdges() {
-    if (location.x &gt; width) {
+    if (location.x > width) {
       location.x = 0;
-    } else if (location.x &lt; 0) {
+    } else if (location.x < 0) {
       location.x = width;
     }
 
-    if (location.y &gt; height) {
+    if (location.y > height) {
       location.y = 0;
-    }  else if (location.y &lt; 0) {
+    }  else if (location.y < 0) {
       location.y = height;
     }
   }
