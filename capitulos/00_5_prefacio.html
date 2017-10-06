@@ -1,0 +1,175 @@
+<section data-type="preface" id="_preface">
+<h1>Prefacio</h1>
+
+<section data-type="sect1" id="_p_1_what_is_this_book">
+	<h2>P.1 ¿Qué es este libro?</h2>
+
+	<p>En <a href="http://itp.nyu.edu">ITP</a>, yo enseño cun curso llamado Introducción a los Medios Computacionales. En este curso, los estudiantes aprenden tanto los principios de la programación (variables, condicionales, iteraciones, objetos, arreglos) como también una variedad de aplicaciones relacionadas a la creación de proyectos interactivos (imágenes, pixeles, visión por computadora, redes, datos, 3D). El curso sigue principalmente el material publicado en mi libro introductorio <em>Learning Processing (Aprendiendo Processing)</em>; de múltiples maneras, <em>La Naturaleza del Código</em> es una continuación. Cuando hayas aprendido lo básico y visto las posibilidades de aplicación, tu próximo paso muede ser entrar con más profundidad a un área particular. Por ejemplo, te puedes enfocar en visión por computadora (y leer un libro como <em>Making Things See</em> (Haciendo que las cosas vean), de Greg Borenstein). En el sentido más básico, este libro es el próximo paso en un universo de muchos próximos pasos. Continua exactamente donde <em>Learning Processing</em> acaba, demostrando técnicas más avanzadas de programación con Processing, enfocadas en algoritmos y simulación.</p>
+
+	<p>El objetivo de este libro es simple. Queremos mirar fenómenos que ocurren naturalmente en nuestro mundo físico, y determinar cómo escribir código para simularlos.</p>
+
+	<p>Entonces, ¿de qué se trata este libro exactamente? ¿Es un libro de ciencias? Absolutamente no. Ciertamente vamos a examinar temas que provienen de la física o la biología, pero no es nuestro trabajo investigarlos con alto rigor académico. En cambio, vamos a dar una mirada a los conceptos científicos y sólo tomar lo necesario en función de contruir ejemplos específicos de software.</p>
+
+	<p>¿Es este un libro de arte o diseño? Yo diría que no; después de todo, nos vamos a enfocar en algoritmos y sus técnicas de programación. Por supuesto que los resultados serán visuales (como <em>sketches</em>, o bocetos de animación en Processing), pero existen más con el propósito de demostrar las técnicas mismas y algoritmos de programación, dibujados con formas sencillas y coloreadas en escalas de grises. Espero, sin embargo, que tanto diseñadores como artistas puedan incorporar este material en su propia práctica, para crear nuevas formas de trabajo interesantes.</p>
+
+	<p>En el fondo, si este libre es cualqueir cosa, es realmente un libro de programación <em>a la antigua</em>. Mientras que los temas científicos pueden inspirar algunos de los capítulos (física Newtoniana, crecimiento y evolución celular), o si lores resultados inspiran un proyecto artístico, el contenido mismo siempre se centrará en la implementación, con un foco especial en la programación orientada a objetos.</p>
+</section>
+
+<section data-type="sect1" id="_p_2_a_word_about_processing">
+	<h2>P.2 Un poco sobre Processing</h2>
+
+	<p>Yo uso Processing en este libro para varias razones. Por un lado, es un lenguaje y entorno de programación con el que me siento muy cómodo, y disfruto usándolo en mi trabajo personal. Segundo, es gratis, <em>open source</em>, o de código abierto, y orientado a los principiantes. Hay una comunidad activa y energética de personas que utilizan Processing; para muchos, es el primer lenguaje  de programación con el que aprendieron. Por eso, utilizando Processing espero también alcanzar una amplia audiencia y poder enseñar y demostrar conceptos de una manera amigable.</p>
+
+	<p>Habiendo dicho todo eso, nada de lo que hagamos en este libro lo amarra exclusivamente a Processing. Este libro podría haber sido escrito utilizando ActionScript, Javascript, Java (sin Processing), o un sinnúmero de otros entornos de programación de código abierto, como openFrameworks, Cinder, o el más reciéntemente lanzado pocode. Espero que, una vez terminado este libro, pueda publicar versiones de los ejemplos de este libro que se ejecuten en otros entorno. Quien esté interesado en ayudar a portar los ejemplos, puede contactarme en (<code>daniel@shiffman.net</code>).</p>
+
+	<p>Todos los ejemplos de este libro fueron probados con Processing 2.0b6, pero en su mayoría, debieran funcionar también en versiones anteriores de Processing. Los mantendré actualizados a la versión más reciente del software. El código reciente podrá ser siempre descargado en <a href="http://github.com/shiffman/The-Nature-of-Code-Examples">GitHub</a>.</p>
+</section>
+
+<section data-type="sect1" id="_p_3_what_do_you_need_to_know">
+	<h2>P.3 ¿Qué debo saber??</h2>
+
+	<p>Puedo describir el prerequisito para comprender el material de este libro como: "un semestre aprendiendo a programar con Processing (y familiaridad con programación orientada a objetos)." No obstante, no hay razón por la que no puedas leer este libro sabiend programar en un lenguaje o entorno diferente. La clave, es que tengas algo de experiencia previa programando. </p>
+
+	<p>Si no has programado nada anteriormente, se te puede hacer más difícil, porque el libro asume conocimiento de las bases de programación. Sugiero que consigas un libro introductorio a Processing, por ejemplo alguno de esta lista publicada en el <a href="http://processing.org/learning/books/">sitio web de  Processing</a>.</p>
+
+	<p>Si tienes experiencia programando, pero no has trabajado con Processing, probablemente te pondrás al día sólo con href="http://processing.org/download/">descargar Processing</a>, revisar los ejemplos incluídos y leer la página <a href="http://processing.org/learning/gettingstarted/">Comenzando con Processing</a>.</p>
+
+	<p>También debo recalcar que la experiencia trabajando con programación orientada a objetos es crucial. Revisaremos algunos de los principios en la introducción del libro, pero sugiero leer antes el <a href="http://processing.org/learning/objects">tutorial de Processing sobre objetos</a>.</p>
+</section>
+
+<section data-type="sect1" id="_p_4_what_are_you_using_to_read_this_book">
+	<h2>P.4 ¿Qué usas para leer este libro?</h2>
+
+	<p>¿Estás leyendo este libro en una Kindle? ¿En una copia impresa? ¿En tu laptop en formato PDF? ¿En una tablet que utiliza HTML5 para mostrar las animaciones? ¿Estás amarrado a tu silla absorviendo contenido directamente en tu cerebro desde una serie de electrodos, tubos y cartuchos?</p>
+
+	<p>El libro que lees ahora, fue generado con el proyecto <a href="https://github.com/magicbookproject/">Magic Book</a>. Magic Book es un framework para la autopublicación, desarrollado en <a href="http://itp.nyu.edu">ITP</a>. El objetivo es que escribas sólo una vez, en un archivo de texto simple. Una vez que hayas escrito tu contenido, presionas un botón mágico y el libro es generado en una variedad de formatos – PDF, HTML, versión para imprimir, Kindle, etc. Todo se diseña y compone usando hojas de estilo CSS. En la primera edición, lanzaremos versiones digitales en PDF, copia impresa, y en HTML5 (que incluye versiones animadas de los ejemplos itilizando Processing.js). Espero que en el curso del próximo año, el libro pueda estar disponible en otros formatos. Si quieres ayudar con esto, por favor contáctame (<code>daniel@shiffman.net</code>).</p>
+</section>
+
+<section data-type="sect1" id="_p_5_the_story_of_this_book">
+	<h2>P.5 La "historia" de este libro</h2>
+
+	<p>Al revisar la tabla de contenidos, notarás que hay diez capítulos, cada uno cibriendo temas diferentes. Y de alguna forma, este libro es exactamente eso: una compilación de diez conceptos y ejemplos de código asociados. Sin embargo, al compilar el material, siempre imaginé una narrativa casi lineal. Antes de empezar a revisar los capítulos, me gustaría guiarte por la historia detrás de ese orden.</p>
+
+	<section data-type="sect2" id="_part_i_inanimate_objects">
+		<h2>Part I: Objetos inanimados</h2>
+
+		<p>Una pelota de fútbol está sobre el pasto. Una patada la lanza por el aire. La gravedad la lleva de vuelta al suelo. Una fuerte brisa la mantiene en el aire un momento más, hasta que cae finalmente, y rebota en la cabeza de un jugador que salta. La pelota no está viva; no puede tomar decisiones sobre cómo moverse por el mundo. En vez de so, es un objeto inanimado, esperando a ser empujado y tirado por las fuerzas de su entorno.</p>
+
+		<p>¿Cómo podemos modelar en Processing el movimiento de la pelota de fútbol? Si alguna vez programaste un círculo moviéndose através de una ventana, entonces probablemente escribiste la siguiente línea de código.</p>
+
+		<pre data-code-language="java" data-type="programlisting" class="codesplit">
+		x = x + 1;</pre>
+
+		<p>Dibujas la forma en la posición <code>x</code>. En cada cuadro de la animación incrementas el valor de <code>x</code>, vuelves a dibujar la forma y <em>¡voila!</em> tenemos la ilusión de movimiento. Quizás diste un paso más, e incluiste la variable <code>y</code> para la posición, y también variables para la velocidad en ambos ejes, <em>x</em> e <em>y</em>.</p>
+
+		<pre data-code-language="java" data-type="programlisting" class="codesplit">
+		x = x + velocidadX;
+		y = y + velocidadY;</pre>
+
+		<p>La Parte I de esta historia nos lleva un paso más adelante. Vamos a tomar las variables <code>velocidadX</code> y <code>velocidadY</code> y vamos a aprender cómo juntas forman un vector (<strong>Capítulo 1</strong>), el componente principal del movimiento. No obtendremos nueva funcionalidad al hacer esto, pero será la base fundacional para el resto del libro.</p>
+
+		<p>Cuando sepamos un poco más sobre vectores, rápidamente nos daremos cuenta que la fuerza (<strong>Capítulo 2</strong>) también es un vector. Al patear una pelota de fútbol estamos aplicando una fuerza. ¿Qué genera una fuerza aplicada a un objeto? Según Isaac Newton, fuerza equivale a la masa de un objeto multiplicada por su aceleración. La fuerza entonces, hace que un objeto acelere. Modelar fuerzas nos permite crear sistemas con movimiento dinámico, en los que los objetos se mueven según una variedad de reglas.</p>
+
+		<p>Ahora, esa pelota a la cual aplicamos una fuerza, quizás también estaba rotando. Si un objeto se mueve según su aceleración, puede rotar de acuerdo a su aceleración angular (<strong>Capítulo 3</strong>). Comprender los principios de los ángulos y la trigonometría nos permitirá modelar objetos que rotan, así como también comprender los principios del movimiento oscilatorio, como un péndulo balanceándose, o un resorte rebotando.</p>
+
+		<p>Cuando tengamos dominados los principios de movimiento y fuerzas de un objeto inanimado individual, aprenderemos cómo hacer cientos y miles de esos objetos, y cómo  administrarlos en un sistema único llamado sistema de partículas (<strong>Capítulo 4</strong>). Los sistemas de partículas nos permitirán acercarnos a dos características avanzadas de la programación orientada a objetos: herencia y polimorfismo.</p>
+
+		<p>Entre los Capítulos 1 y 4, todos los ejemplos los escribiremos "desde cero", es decir el código de los algoritmos que generarán momvimiento en los objetos será escrito directamente en Processing. Por cierto que no somos los primeros en considerar la idea de simular física para animar objetos, por lo que exploraremos algunas bibliotecas de código para trabajar con física (<strong>Capítulo 5</strong>) y cómo esas librerías pueden ser utilizadas para modelar comportamientos más avanzados y sofisticados. Para eso daremos un vistazo <a href="http://www.box2d.org">Box2D</a> y a la librería <a href="http://toxiclibs.org/">Verlet Physics</a> de toxiclibs.</p>
+	</section>
+
+	<section data-type="sect2" id="_part_ii_it_s_alive">
+			<h2>Part II: ¡Está vivo!</h2>
+
+			<p>¿Qué significa modelar vida? No es una pregunta fácil de contestar, pero podemos comenzar a construri objetos que tienen la habilidad de percibir su entorno. Pensemos esto por un momento. Un bloque que cae de una mesa se mueve de acuerdo a ciertas fuerzas, al igual que un delfín nada a través del agua. Pero hay una diferencia clave. El bloque no puede decidir saltar desde la mesa. El delfín puede decidir saltar fuera del agua. El delfín tiene sueños y aspiraciones. Puede sentir hambre o miedo, y esas sensaciones influencian sus movimientos. Al examinar técnicas que permite modelar agentes autónomos (<strong>Capítulo 6</strong>), daremos vida a nuestros objetos inanimados, permitiéndoles tomar decisiones sobre sus movimientos, de acuerdo a su propia comprensión del entorno.</p>
+
+			<p>Al combinar conceptos de objetos autónomos, con lo que hemos aprendido sobre modelar sistemas en el Capítulo 4, podremos modelar el comportamiento grupal, que tiene propiedades de complejidad. Un sistema complejo es típicamente definido como un sistema que es "más que la suma de sus partes". Aunque que los elementos individuales de un sistema pueden ser increíblemente simples y fáciles de comprender, el comportamiento de un sistema como un todo puede ser altamente complejo, inteligente y difícil de predecir. Esto nos alejará de sólo pensar y modelar el movimiento, y nos acerca al ámbito de los sistemas basados en reglas. ¿Qué podemos modelar con autómatas celulares, sistemas de células viviendo en una grilla (<strong>Capítulo 7</strong>)? ¿Qué tipos de patrones podemos generar con fractales (<strong>Capítulo 8</strong>), la geometría de la naturaleza?</p>
+	</section>
+
+	<section data-type="sect2" id="_part_iii_intelligence">
+		<h2>Part III: Inteligencia</h2>
+
+		<p>Logramos que las cosas se movieran. Luego le dimos esperanzas y sueños y miedos, junto con reglas para permitirles vivir. El último paso de este libro será darle inteligencia a nuestras creaciones. ¿Podemos aplicar el proceso de evolución biológica a sistemas computacionales (<strong>Capítulo 9</strong>) para evolucionar nuestros objetos? Inspirándonos en el cerebro humano, ¿podemos programas redes neuronales artificiales (<strong>Capítulo 10</strong>) que permitan a los objetos aprender de sus errores y adaptarse a su entorno?</p>
+	</section>
+</section>
+
+<section data-type="sect1" id="_p_6_this_book_as_a_syllabus">
+	<h2>P.6 Este libro como contenido de un curso</h2>
+
+	<p>Aunque el contenido de este curso por cierto funciona como un curso intensivo y condensado en un semestre, lo he diseñado para poder dictarlo en un curso de catorce semanas. Sin embargo, vale la pena decir que creo que los capítulos funcionan mejor expandidos a través de múltiples semanas. Por ejemplo, la calendarización de mi curso usualmente es así:</p>
+
+	<dl class="preface">
+		<dt>Semana 1</dt>
+		<dd>
+			<p>Introducción y Vectores (Capítulo 1)</p>
+		</dd>
+		<dt>Semana 2</dt>
+		<dd>
+			<p>Fuerzas (Capítulo 2)</p>
+		</dd>
+		<dt>Semana 3</dt>
+		<dd>
+			<p>Oscilaciones (Capítulo 3)</p>
+		</dd>
+		<dt>Semana 4</dt>
+		<dd>
+			<p>Sistemas de Partículas (Capítulo 4)</p>
+		</dd>
+		<dt>Semana 5</dt>
+		<dd>
+			<p>Bibliotecas de Física Parte I (Capítulo 5)</p>
+		</dd>
+		<dt>Semana 6</dt>
+		<dd>
+			<p>Bibliotecas de Física Parte II & Conducción (Capítulos 5-6)</p>
+		</dd>
+		<dt>Semana 7</dt>
+		<dd>
+			<p>Presentación de proyectos intermedios sobre movimiento</p>
+		</dd>
+		<dt>Semana 8</dt>
+		<dd>
+		<p>Sistemas Complejos: Bandadas y Autómatas Celulares en 1D ( 6-7)</p>
+		</dd>
+		<dt>Semana 9</dt>
+		<dd>
+		<p>Sistemas Complejos: Bandadas y Autómatas Celulares en 2D (Capítulos 7-8)</p>
+		</dd>
+		<dt>Semana 10</dt>
+		<dd>
+		<p>Algoritmos Genéticos (Capítulo 9)</p>
+		</dd>
+		<dt>Semana 11</dt>
+		<dd>
+		<p>Redes Neuronales (Capítulo 10)</p>
+		</dd>
+		<dt>Semana 12-13</dt>
+		<dd>
+		<p>Taller de proyecto final</p>
+		</dd>
+		<dt>Semana 14</dt>
+		<dd>
+		<p>Presentación de proyecto final</p>
+		</dd>
+	</dl>
+
+	<p>Si estás considerando usar este texto para un curso o talle, por favor contáctame. Espero eventualmente liberar un set de videos y láminas de presentación con material educativo complementario.</p>
+</section>
+
+<section data-type="sect1" id="_p_7_the_ecosystem_project">
+	<h2>P.7 El Proyecto de Ecosistema</h2>
+
+	<p>Por más que quisiera pretender que puedes aprender todo acomodándote en una silla y leyendo algo de prosa sobre programación, para aprender a programar, lo que debes hacer es pogramar. Encontrarás que es útil tener en mente un proyecto (o dos) para ir desarrollándolo junto a los ejercicios mientras avanzas capítulo a capítulo. De hecho, mientras enseño La Naturaleza del Código en ITP, he notado que los estudiantes disfrutan construyendo un único proyecto, paso a paso, semana a semana, a lo largo del semestre.</p>
+
+	<p>Al final de cada capítulo, encontrarás una serie de ejercicios que pueden ir complementando ese desarrollo, ejercicios que progresiva e incrementalmente incorporan cada uno de los temas. Considera este escenario: te encomiendan, para un museo de ciencias, desarrollar un software para una nueva muestra llamada "El ecosistema digital", un mundo de criaturas procedurales, animadas, que viven en una projección para que los visitantes admiren al entrar al museo.. No estoy diciendo con esto que este libro sea particularmente innovador o creativo. Pero usaremos la idea de este proyecto ficticio, para demostrar cómo combinar los elementos que confluyen en un único proyecto de software. Te desafío a desarrollar tu propia idea, una que sea aún más abstracta y creativa.</p>
+</section>
+
+<section data-type="sect1" id="_p_8_where_do_i_find_the_code_online_and_submit_feedback">
+	<h2>P.8 ¿Dónde encuentro el código y envío sugerencias?</h2>
+
+	<p>Para todo lo relacionado con el libro, por favor visita la <a href="http://www.natureofcode.com">web de La Naturaleza del Código</a>. El texto de origen y todas las ilustraciones están disponibles en <a href="http://github.com/shiffman/The-Nature-of-Code">GitHub</a>. Por favor deja retroalimentación y envía sugerencias de corrección utilizando los <em>tickets de soporte (issues)</em> de Github.</p>
+
+	<p>El código fuente de todos los ejemplos (y ejercicios) también está disponible en <a href="http://github.com/shiffman/The-Nature-of-Code-Examples">GitHub</a>. Cada capítulo incluye bloques de código en línea con el texto. Sin embargo, en muchos casos, los he acortado a simplificado para ilustrar un punto específico. En todos los casos, el código fuente completo, con comentarios, se puede encontrar en GitHub.</p>
+
+	<p>Si tienes pregunta sobre el código mismo, sugiero publicar una pregunta en el <a href="http://forum.processing.org">foro de Processing</a>.</p>
+</section>
+</section>
