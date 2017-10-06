@@ -23,6 +23,7 @@
 
 <p>Un vector típicamente se dibuja como una flecha; la dirección se indica con la punta de la flecha y su magnitud por el largo de la misma.</p>
 
+<<<<<<< HEAD
 <figure id="chapter01_figure1"><img alt="Figure 1.1" src="chapter01/ch01_01.png" />
 <figcaption>Figura 1.1 Un vector (dibujado como una flecha) tiene magnitud (largo de la flecha) y dirección (hacia dónde apunta).</figcaption>
 </figure>
@@ -31,14 +32,30 @@
 
 <section data-type="sect1" id="chapter01_section1">
 <h2>1.1 Vectores, Eres mi media naranja</h2>
+=======
+<Figura id="capitulo01_Figura1"><img alt="Figura 1.1" src="capitulo01/ch01_01.png" />
+<figcaption>Figura 1.1 Un Vector (dibujado como una flecha) tiene magnitud (largo de la flecha) y dirección (hacia dónde apunta).</figcaption>
+</Figura>
+
+<p>En esta ilustración, el vector se dibuja como una flecha desde el punto A hacia el punto B, y sirve como instrucción para el desplazamiento desde A hacia B.</p>
+
+<section data-type="sect1" id="capitulo01_section1">
+<h2>1.1 Vectores, Son mi media naranja</h2>
+>>>>>>> origin/master
 
 <a data-primary="bouncing ball sketch" data-type="indexterm"></a> <a data-primary="vectors" data-secondary="bouncing ball sketch" data-type="indexterm"></a>
 
 <p>Antes de entrar en más detalles sobre los vectores, miremos un ejemplo básico de Processing que demuestra por qué debiéramos preocuparnos de ellos en primer lugar. Si ya leíste cualquiera de los libros introductorios a Processing, o tomaste una clase de programación con Processing (si ya haz hecho alguna de esas dos cosas como preparación para este libro), es probable que ya hayas aprendido a escribir un <em>sketch</em> sencillo con una pelota saltarina. (<em>sketch</em> es el documento donde escribimos el código dentro de Processing).</p>
 
+<<<<<<< HEAD
 <figure class="screenshot" data-pde="processingjs/chapter01/_1_1_bouncingball_novectors/_1_1_bouncingball_novectors.pde"><img alt="" src="chapter01/ch01_ex01.png" />
 <figcaption>Si estás leyendo este libro impreso o en PDF, sólo verás las imágenes estáticas. El movimiento, claramente, es un elemento clave de nuestra discusión, por lo que dentro de lo posible las imágenes estáticas tendrán un rastro para dar cuenta de ese comportamiento. Para saber más sobre cómo dibujar esos rastros, ve el código de ejemplo disponible para descargar.</figcaption>
 </figure>
+=======
+<Figura class="screenshot" data-pde="processingjs/chapter01/_1_1_bouncingball_novectors/_1_1_bouncingball_novectors.pde"><img alt="" src="capitulo01/ch01_ex01.png" />
+<figcaption>Si estás leyendo este libro impreso o en PDF, sólo verás las imágenes estáticas. El movimiento, claramente, es un elemento clave de nuestra discusión, por lo que dentro de lo posible los pantallazos estáticos tendrán un rastro traslúcido para dar cuenta de ese comportamiento. Para saber más sobre cómo dibujar esos rastros, ve el código de ejemplo disponible para descargar.</figcaption>
+</Figura>
+>>>>>>> origin/master
 
 <div data-type="example"><h5>Ejemplo 1.1: Pelota saltarina sin vectores</h5></div>
 
@@ -159,7 +176,7 @@ Vector velocidad;</pre>
 <p>Como una introducción a los vectores, viviremos en dos dimensiones por un tiempo (al menos hasta que pasemos los primeros capítulos). Todos estos ejemplos pueden extenderse fácilmente a tres dimensiones (y la Clase que usaremos—<span>PVector</span><code>—</code>nos permite usar tres dimensiones.) Sin embargo, es más fácil empezar con solamente dos.</p>
 </section>
 
-<section data-type="sect1" id="chapter01_section2">
+<section data-type="sect1" id="capitulo01_section2">
 <h2>1.2 Vectores para Programadores con Processing</h2>
 
 <a data-primary="Processing" data-secondary="vectors and" data-type="indexterm"></a> <a data-primary="PVector class (Processing)" data-type="indexterm"></a> <a data-primary="vectors" data-secondary="Processing and" data-type="indexterm"></a>
@@ -168,9 +185,9 @@ Vector velocidad;</pre>
 
 <p>Aquí hay algunos vectores y posible traslaciones:</p>
 
-<figure id="chapter01_figure2"><img alt="Figure 1.2" src="chapter01/ch01_02.png" />
+<Figura id="capitulo01_Figura2"><img alt="Figura 1.2" src="capitulo01/ch01_02.png" />
 <figcaption>Figura 1.2</figcaption>
-</figure>
+</Figura>
 
 <div data-type="note">
 <dl>
@@ -191,9 +208,9 @@ Vector velocidad;</pre>
 
 <p>Probablemente haz hecho algo similar al programar movimiento. Por cada cuadro de animación(ej: un único ciclo de bucle del<code>draw()</code> de processing), tu instruyes cada objeto en a pantalla para mover cierto numero de pixeles horizonta y verticalmente.</p>
 
-<figure id="chapter01_figure3"><img alt="Figure 1.3" src="chapter01/ch01_03.png" />
+<Figura id="capitulo01_Figura3"><img alt="Figura 1.3" src="capitulo01/ch01_03.png" />
 <figcaption>Figura 1.3</figcaption>
-</figure>
+</Figura>
 
 <p>Por cada cuadro:</p>
 
@@ -205,9 +222,9 @@ Vector velocidad;</pre>
 
 <p>Sin embargo, otra forma de describir una posición, es el camino desde el origen hasta llegar a esa posición. Por lo tanto, una posición puede ser el vector representando la diferencia entre posición y origen.</p>
 
-<figure id="chapter01_figure4"><img alt="Figure 1.4" src="chapter01/ch01_04.png" />
+<Figura id="capitulo01_Figura4"><img alt="Figura 1.4" src="capitulo01/ch01_04.png" />
 <figcaption>Figura 1.4</figcaption>
-</figure>
+</Figura>
 
 <p>Examinemos datos subyacentes para ambas, posición y velocidad. En el ejemplo de la pelota que rebota teníamos los siguiente:</p>
 
@@ -275,7 +292,7 @@ posicion = posicion + velocidad;</pre>
 <p>Sin embargo, en Processing, la operación matemática de adición + está reservada para valores primitivos (enteros, decimales, etc.) únicamente. Processing no sabe cómo sumar objetos tipo <code>PVector</code>, tal como no sabe sumar objetos tipo <code>PFont</code> o tipo <code>PImage</code>. Afortunadamente para nosotros, la clase <code>PVector</code> incluye funciones para las operaciones matemáticas más comunes.</p>
 </section>
 
-<section data-type="sect1" id="chapter01_section3">
+<section data-type="sect1" id="capitulo01_section3">
 <h2>1.3 Adición de Vectores</h2>
 
 <a data-primary="add() function (PVector class)" data-type="indexterm"></a> <a data-primary="vectors" data-secondary="adding" data-type="indexterm"></a>
@@ -297,15 +314,15 @@ posicion = posicion + velocidad;</pre>
 
 <p>Digamos que tenemos los siguientes dos vectores:</p>
 
-<figure id="chapter01_figure5"><img alt="Figure 1.5" src="chapter01/ch01_05.png" />
+<Figura id="capitulo01_Figura5"><img alt="Figura 1.5" src="capitulo01/ch01_05.png" />
 <figcaption>Figura 1.5</figcaption>
-</figure>
+</Figura>
 
 <p>Cada vector tiene dos componentes, un valor <code>x</code> y un <code>y</code>. Para sumar dos vectores, simplemente tenemos que sumar ambas <code>x</code><code>’</code>s y ambas <code>y</code><code>’</code>s.</p>
 
-<figure id="chapter01_figure6"><img alt="Figure 1.6" src="chapter01/ch01_06.png" />
+<Figura id="capitulo01_Figura6"><img alt="Figura 1.6" src="capitulo01/ch01_06.png" />
 <figcaption>Figura 1.6</figcaption>
-</figure>
+</Figura>
 
 <p>En otras palabras:</p>
 
@@ -456,26 +473,26 @@ if ((posicion.x > width) || (posicion.x < 0)) {
   velocidad.x = velocidad.x * -1;
 }</pre>
 
-<div data-type="exercise" id="chapter01_exercise1">
+<div data-type="exercise" id="capitulo01_exercise1">
 <h5>Ejercicio 1.1</h5>
 
 <p>Encuentra algo que hayas hecho previamente en Processing usando variables separadas de <code>x</code> e <code>y</code>, y en lugar de ellas usa <code>PVector</code><code>s</code>.</p>
 </div>
 
-<div data-type="exercise" id="chapter01_exercise2">
+<div data-type="exercise" id="capitulo01_exercise2">
 <h5>Ejercicio 1.2</h5>
 
 <p>Usa uno de los ejemplos de Caminante de la introducción y conviértelo para que use <code>PVector</code><code>s</code>.</p>
 </div>
 
-<div data-type="exercise" id="chapter01_exercise3">
+<div data-type="exercise" id="capitulo01_exercise3">
 <h5>Ejercicio 1.3</h5>
 
 <p>Extiende a 3D el ejemplo de la pelota saltarina con vectores. ¿Podrías hacer que la esfera rebote alrededor de una caja?</p>
 </div>
 </section>
 
-<section data-type="sect1" id="chapter01_section4">
+<section data-type="sect1" id="capitulo01_section4">
 <h2>1.4 Más Matemática de Vectores</h2>
 
 <p>En realidad, la adición fue sólo el primer paso. Hay muchas operaciones matemáticas que son comúnmente usadas con vectores. Abajo, hay una lista exhaustiva de las operaciones disponibles como funciones en la clase <code>PVector</code>. Repasaremos algunas de las más relevantes ahora. En cuanto nuestros ejemplos se hagan más sofisticados en los próximos capítulos, revelaremos los detalles de más funciones.</p>
@@ -553,9 +570,9 @@ if ((posicion.x > width) || (posicion.x < 0)) {
 <div data-type="equation">w_y = u_y - v_y</div>
 </div>
 
-<figure id="chapter01_figure7"><img alt="Figure 1.7: Vector Subtraction" src="chapter01/ch01_07.png" />
+<Figura id="capitulo01_Figura7"><img alt="Figura 1.7: Vector Subtraction" src="capitulo01/ch01_07.png" />
 <figcaption>Figura 1.7: Substracción de Vectores&nbsp;</figcaption>
-</figure>
+</Figura>
 
 <p>entonces la función dentro de <code>PVector</code> se ve así:</p>
 
@@ -567,9 +584,9 @@ if ((posicion.x > width) || (posicion.x < 0)) {
 
 <p>El siguiente ejemplo demuestra la substracción de vectores tomando la diferencia entre dos puntos—la posición del mouse y el centro de la ventana. Nota el uso de <code>translate </code> para visualizar el vector resultante como una línea desde el centro (width/2, height/2) hacia el mouse.</p>
 
-<figure class="screenshot" data-pde="processingjs/chapter01/_1_3_vector_subtraction/_1_3_vector_subtraction.pde"><img alt="ch01 ex03" src="chapter01/ch01_ex03.png" />
+<Figura class="screenshot" data-pde="processingjs/chapter01/_1_3_vector_subtraction/_1_3_vector_subtraction.pde"><img alt="ch01 ex03" src="capitulo01/ch01_ex03.png" />
 <figcaption>&nbsp;</figcaption>
-</figure>
+</Figura>
 
 <div data-type="example"><h5>Ejemplo 1.3: Substracción de Vectores</h5></div>
 
@@ -611,9 +628,9 @@ void draw() {
 
 <p>Para escalar un vector, multiplicamos cada componente (<code>x</code> e <code>y</code>) por un escalar.</p>
 
-<figure class="half-width-right" id="chapter01_figure8"><img alt="Figure 1.8: Scaling a vector" src="chapter01/ch01_08.png" />
+<Figura class="half-width-right" id="capitulo01_Figura8"><img alt="Figura 1.8: Scaling a vector" src="capitulo01/ch01_08.png" />
 <figcaption>Figura 1.8: Escalando un vector&nbsp;</figcaption>
-</figure>
+</Figura>
 
 <div data-type="equation">\vec{w} = \vec{u} * n</div>
 
@@ -657,9 +674,9 @@ PVector u = new PVector(-3, 7);
 // Este PVector ahora es tres veces su tamaño y equivale a (-9,21).
 u.mult(3);</pre>
 
-<figure class="screenshot" data-pde="processingjs/chapter01/_1_4_vector_multiplication/_1_4_vector_multiplication.pde"><img alt="ch01 ex04" src="chapter01/ch01_ex04.png" />
+<Figura class="screenshot" data-pde="processingjs/chapter01/_1_4_vector_multiplication/_1_4_vector_multiplication.pde"><img alt="ch01 ex04" src="capitulo01/ch01_ex04.png" />
 <figcaption>&nbsp;</figcaption>
-</figure>
+</Figura>
 
 <div data-type="example"><h5>Ejemplo 1.4: Multiplicando un vector</h5></div>
 
@@ -681,9 +698,9 @@ void draw() {
 
 }</pre>
 
-<figure class="half-width-right" id="chapter01_figure9"><img alt="Figure 1.9" src="chapter01/ch01_09.png" />
+<Figura class="half-width-right" id="capitulo01_Figura9"><img alt="Figura 1.9" src="capitulo01/ch01_09.png" />
 <figcaption>Figura 1.9</figcaption>
-</figure>
+</Figura>
 
 <a data-primary="div() function (PVector class)" data-type="indexterm"></a> <a data-primary="PVector class (Processing)" data-secondary="div() function" data-type="indexterm"></a>
 
@@ -714,7 +731,7 @@ La ley distributiva con 2 vectores, 1 escalar: <span data-type="equation">(\vec{
 </section>
 </section>
 
-<section data-type="sect1" id="chapter01_section5">
+<section data-type="sect1" id="capitulo01_section5">
 <h2>1.5 Magnitud de Vectores</h2>
 
 <a data-primary="magnitude (of vectors)" data-type="indexterm"></a> <a data-primary="vectors" data-secondary="magnitude" data-type="indexterm"></a>
@@ -722,20 +739,20 @@ La ley distributiva con 2 vectores, 1 escalar: <span data-type="equation">(\vec{
 <p>Multiplicación y división, como acabamos de ver, son métodos con los cuales la longitud del vector puede ser cambiada pero sin afectar su dirección. Quizás te estas preguntando: "Ok, entonces como se cual es la longitud del vector? Conozco los componentes (<code>x</code> e <code>y</code>), pero que tan larga (en pixeles) es actualmente la flecha?" Entender cómo calcular la longitud (también conocido como <strong><em>magnitud</em></strong>) de un vector es increíblemente útil e importante.
 </p>
 
-<figure class="half-width-right">
-<img alt="Nature of Code Image" src="chapter01/ch01_10.png" />
+<Figura class="half-width-right">
+<img alt="Nature of Code Image" src="capitulo01/ch01_10.png" />
 <figcaption>
-    Figure 1.10: La longitud o “magnitud” de un vector <svg:svg height="12.190371pt" viewbox="0 -9.600527 8.520000 12.190371" width="8.520000pt" xmlns="http://www.w3.org/1998/Math/MathML" xmlns:svg="http://www.w3.org/2000/svg" xmlns:svgmath="http://www.grigoriev.ru/svgmath"><svg:metadata><svgmath:metrics axis="6.57421875" baseline="2.58984375" bottom="2.44921875" top="12.1903710937"></svgmath:metrics></svg:metadata><svg:g transform="translate(1.596914, 0.000000)"><svg:text fill="black" font-family="Times New Roman" font-size="12.000000" font-style="italic" text-anchor="middle" x="2.663086" y="0.000000">v</svg:text></svg:g><svg:g transform="translate(0.000000, -8.785137)"><svg:text fill="black" font-family="Times New Roman" font-size="8.520000" text-anchor="middle" x="4.260000" y="2.828906">&rarr;</svg:text></svg:g></svg:svg> is often written as: <svg:svg height="12.503906pt" viewbox="0 -9.914062 29.061672 12.503906" width="29.061672pt" xmlns="http://www.w3.org/1998/Math/MathML" xmlns:svg="http://www.w3.org/2000/svg" xmlns:svgmath="http://www.grigoriev.ru/svgmath"><svg:metadata><svgmath:metrics axis="6.57421875" baseline="2.58984375" bottom="1.37109375" top="12.357421875"></svgmath:metrics></svg:metadata><svg:g transform="translate(0.000000, -3.984375)"><svg:text fill="black" font-family="Lucida Sans Unicode" font-size="12.000000" text-anchor="middle" x="3.468750" y="3.468750">∥</svg:text></svg:g><svg:g transform="translate(10.270836, 0.000000)"><svg:g transform="translate(1.596914, 0.000000)"><svg:text fill="black" font-family="Times New Roman" font-size="12.000000" font-style="italic" text-anchor="middle" x="2.663086" y="0.000000">v</svg:text></svg:g><svg:g transform="translate(0.000000, -8.785137)"><svg:text fill="black" font-family="Times New Roman" font-size="8.520000" text-anchor="middle" x="4.260000" y="2.828906">&rarr;</svg:text></svg:g></svg:g><svg:g transform="translate(22.124172, -3.984375)"><svg:text fill="black" font-family="Lucida Sans Unicode" font-size="12.000000" text-anchor="middle" x="3.468750" y="3.468750">∥</svg:text></svg:g></svg:svg>
+    Figura 1.10: La longitud o “magnitud” de un vector <svg:svg height="12.190371pt" viewbox="0 -9.600527 8.520000 12.190371" width="8.520000pt" xmlns="http://www.w3.org/1998/Math/MathML" xmlns:svg="http://www.w3.org/2000/svg" xmlns:svgmath="http://www.grigoriev.ru/svgmath"><svg:metadata><svgmath:metrics axis="6.57421875" baseline="2.58984375" bottom="2.44921875" top="12.1903710937"></svgmath:metrics></svg:metadata><svg:g transform="translate(1.596914, 0.000000)"><svg:text fill="black" font-family="Times New Roman" font-size="12.000000" font-style="italic" text-anchor="middle" x="2.663086" y="0.000000">v</svg:text></svg:g><svg:g transform="translate(0.000000, -8.785137)"><svg:text fill="black" font-family="Times New Roman" font-size="8.520000" text-anchor="middle" x="4.260000" y="2.828906">&rarr;</svg:text></svg:g></svg:svg> is often written as: <svg:svg height="12.503906pt" viewbox="0 -9.914062 29.061672 12.503906" width="29.061672pt" xmlns="http://www.w3.org/1998/Math/MathML" xmlns:svg="http://www.w3.org/2000/svg" xmlns:svgmath="http://www.grigoriev.ru/svgmath"><svg:metadata><svgmath:metrics axis="6.57421875" baseline="2.58984375" bottom="1.37109375" top="12.357421875"></svgmath:metrics></svg:metadata><svg:g transform="translate(0.000000, -3.984375)"><svg:text fill="black" font-family="Lucida Sans Unicode" font-size="12.000000" text-anchor="middle" x="3.468750" y="3.468750">∥</svg:text></svg:g><svg:g transform="translate(10.270836, 0.000000)"><svg:g transform="translate(1.596914, 0.000000)"><svg:text fill="black" font-family="Times New Roman" font-size="12.000000" font-style="italic" text-anchor="middle" x="2.663086" y="0.000000">v</svg:text></svg:g><svg:g transform="translate(0.000000, -8.785137)"><svg:text fill="black" font-family="Times New Roman" font-size="8.520000" text-anchor="middle" x="4.260000" y="2.828906">&rarr;</svg:text></svg:g></svg:g><svg:g transform="translate(22.124172, -3.984375)"><svg:text fill="black" font-family="Lucida Sans Unicode" font-size="12.000000" text-anchor="middle" x="3.468750" y="3.468750">∥</svg:text></svg:g></svg:svg>
 </figcaption>
-</figure>
+</Figura>
 
 <a data-primary="Pythagoras" data-type="indexterm"></a> <a data-primary="Pythagorean theorem" data-type="indexterm"></a>
 
 <p>Notemos en el diagrama de arriba, como el vector, dibujado como una flecha y dos componentes (<code>x</code> e <code>y</code>), crean un triángulo rectángulo. Los lados son los componentes y la hipotenusa es la propia flecha. Somos muy afortunados de tener este triángulo rectángulo, porque una vez, un matemático griego llamado Pitágoras desarrolló una fórmula para describir la relación entre los lados y la hipotenusa del triángulo rectángulo.</p>
 
-<figure class="half-width-right" id="chapter01_figure11"><img alt="Figure 1.11: The Pythagorean Theorem" src="chapter01/ch01_11.png" />
+<Figura class="half-width-right" id="capitulo01_Figura11"><img alt="Figura 1.11: The Pythagorean Theorem" src="capitulo01/ch01_11.png" />
 <figcaption>Figura 1.11: El Teorema de Pitágoras&nbsp;</figcaption>
-</figure>
+</Figura>
 
 <p>El teorema de Pitágoras dice que en un triángulo rectángulo, <em>a</em> al cuadrado más <em>b</em> al cuadrado es igual a <em>c</em> al cuadrado.</p>
 
@@ -750,9 +767,9 @@ float mag() {
   return sqrt(x*x + y*y);
 }</pre>
 
-<figure class="screenshot" data-pde="processingjs/chapter01/_1_5_vector_magnitude/_1_5_vector_magnitude.pde"><img alt="ch01 ex05" src="chapter01/ch01_ex05.png" />
+<Figura class="screenshot" data-pde="processingjs/chapter01/_1_5_vector_magnitude/_1_5_vector_magnitude.pde"><img alt="ch01 ex05" src="capitulo01/ch01_ex05.png" />
 <figcaption>&nbsp;</figcaption>
-</figure>
+</Figura>
 
 <div data-type="example"><h5>Ejemplo 1.5: Magnitud de un Vector</h5></div>
 
@@ -781,7 +798,7 @@ void draw() {
 }</pre>
 </section>
 
-<section data-type="sect1" id="chapter01_section6">
+<section data-type="sect1" id="capitulo01_section6">
 <h2>1.6 Normalización de Vectores</h2>
 
 <a data-primary="normalization" data-type="indexterm"></a> <a data-primary="unit vectors" data-type="indexterm"></a> <a data-primary="vectors" data-secondary="normalization" data-type="indexterm"></a> <a data-primary="vectors" data-secondary="unit vectors" data-type="indexterm"></a>
@@ -789,9 +806,9 @@ void draw() {
 <p>Calcular al magnitud de un vector es sólo el comienzo. La función magnitud abre la puerta a muchas posibilidades, la primera es la <strong><em>normalización</em></strong>. La normalización se refiere al proceso de hacer algo "estándar", o bien "normal." En el caso de los vectores, supongamos por un momento que un vector estándar tiene una longitud de 1. Para normalizar un vector, por lo tanto, hay que tomar un vector de cualquier longitud y, manteniendo la dirección de este, cambiar su longitud a 1, convirtiéndolo en lo que se llama un <strong><em>vector unitario</em></strong> o <strong><em>versor</em></strong>.
 </p>
 
-<figure class="half-width-right" id="chapter01_figure12"><img alt="Figure 1.12" src="chapter01/ch01_12.png" />
-<figcaption>Figure 1.12</figcaption>
-</figure>
+<Figura class="half-width-right" id="capitulo01_Figura12"><img alt="Figura 1.12" src="capitulo01/ch01_12.png" />
+<figcaption>Figura 1.12</figcaption>
+</Figura>
 
 <p>Ya que describe la dirección del vector sin tomar en cuenta su longitud, es bastante útil tener el versor al alcance. Veremos como esto es útil cuando comencemos a trabajar con fuerzas en el capítulo 2.</p>
 
@@ -804,9 +821,9 @@ void draw() {
 
 <a data-primary="normalize() function (PVector class)" data-type="indexterm"></a> <a data-primary="PVector class (Processing)" data-secondary="normalize() function" data-type="indexterm"></a>
 
-<figure class="half-width-right" id="chapter01_figure13"><img alt="Figure 1.13" src="chapter01/ch01_13.png" />
-<figcaption>Figure 1.13</figcaption>
-</figure>
+<Figura class="half-width-right" id="capitulo01_Figura13"><img alt="Figura 1.13" src="capitulo01/ch01_13.png" />
+<figcaption>Figura 1.13</figcaption>
+</Figura>
 
 <p>En la clase <code>PVector</code>, escribimos nuestras funciones de normalización como lo siguiente:</p>
 
@@ -826,9 +843,9 @@ void normalize() {
  }
 }</pre>
 
-<figure class="screenshot" data-pde="processingjs/chapter01/_1_6_vector_normalize/_1_6_vector_normalize.pde"><img alt="ch01 ex06" src="chapter01/ch01_ex06.png" />
+<Figura class="screenshot" data-pde="processingjs/chapter01/_1_6_vector_normalize/_1_6_vector_normalize.pde"><img alt="ch01 ex06" src="capitulo01/ch01_ex06.png" />
 <figcaption>&nbsp;</figcaption>
-</figure>
+</Figura>
 
 <div data-type="example"><h5>Ejemplo 1.6: Normalizando un vector</h5></div>
 
@@ -849,7 +866,7 @@ void draw() {
 }</pre>
 </section>
 
-<section data-type="sect1" id="chapter01_section7">
+<section data-type="sect1" id="capitulo01_section7">
 <h2>1.7 Movimiento y Vectores: Velocidad</h2>
 
 <a data-primary="motion" data-type="indexterm"></a> <a data-primary="vectors" data-secondary="velocity and" data-type="indexterm"></a> <a data-primary="velocity" data-type="indexterm"></a>
@@ -990,9 +1007,9 @@ movedor.mostrar();</pre>
 
 <p>Acá está el ejemplo completo para referencia:</p>
 
-<figure class="screenshot" data-pde="processingjs/chapter01/_1_7_motion101/_1_7_motion101.pde processingjs/chapter01/_1_7_motion101/Mover.pde"><img alt="ch01 ex07" src="chapter01/ch01_ex07.png" />
+<Figura class="screenshot" data-pde="processingjs/chapter01/_1_7_motion101/_1_7_motion101.pde processingjs/chapter01/_1_7_motion101/Mover.pde"><img alt="ch01 ex07" src="capitulo01/ch01_ex07.png" />
 <figcaption>&nbsp;</figcaption>
-</figure>
+</Figura>
 
 <div data-type="example"><h5>Ejemplo 1.7: Movedor 101 (velocidad)</h5></div>
 
@@ -1069,7 +1086,7 @@ movedor.mostrar();</pre>
   }</pre>
 </section>
 
-<section data-type="sect1" id="chapter01_section8">
+<section data-type="sect1" id="capitulo01_section8">
 <h2>1.8 Vectores de Movimiento: Aceleración</h2>
 
 <a data-primary="acceleration" data-type="indexterm"></a> <a data-primary="vectors" data-secondary="acceleration" data-type="indexterm"></a> <a data-primary="velocity" data-secondary="acceleration" data-type="indexterm"></a>
@@ -1155,7 +1172,7 @@ velocidad.limit(10);</pre>
 
 <p><em>¿Cuál es la magnitud de la velocidad? Si es menos que 10, no hay problema; déjala tal cual. Pero si es más que 10, ¡redúcela a 10!</em></p>
 
-<div data-type="exercise" id="chapter01_exercise4">
+<div data-type="exercise" id="capitulo01_exercise4">
 <h5>Ejercicio 1.4</h5>
 
 <p>Escribe la función <code>limit()</code> para la clase <code>PVector</code>.</p>
@@ -1175,9 +1192,9 @@ velocidad.limit(10);</pre>
 
 <p>Miremos los cambios que hemos hecho en la clase <code>Movedor</code>, incluyendo la <code>aceleración</code> y <code>limit()</code>.</p>
 
-<figure class="screenshot" data-pde="processingjs/chapter01/_1_8_motion101_acceleration/_1_8_motion101_acceleration.pde processingjs/chapter01/_1_8_motion101_acceleration/Mover.pde"><img alt="ch01 ex08" src="chapter01/ch01_ex08.png" />
+<Figura class="screenshot" data-pde="processingjs/chapter01/_1_8_motion101_acceleration/_1_8_motion101_acceleration.pde processingjs/chapter01/_1_8_motion101_acceleration/Mover.pde"><img alt="ch01 ex08" src="capitulo01/ch01_ex08.png" />
 <figcaption>&nbsp;</figcaption>
-</figure>
+</Figura>
 
 <div data-type="example"><h5>Ejemplo 1.8: Movimiento 101 (velocidad y aceleración constante)</h5></div>
 
@@ -1213,7 +1230,7 @@ class Movedor {
   void revisarBordes() {}
 }</pre>
 
-<div data-type="exercise" id="chapter01_exercise5">
+<div data-type="exercise" id="capitulo01_exercise5">
 <h5>Ejercicio 1.5</h5>
 
 <p>Crea una simulación de un auto (o un atleta) que acelere cuando presiones la flecha hacia arriba y que frene cuando presiones la flecha hacia abajo en tu teclado.</p>
@@ -1223,9 +1240,9 @@ class Movedor {
 
 <p>Ahora pasando al Algorithm #2, <em>aceleración completamente aleatoria</em>. En este caso, en vez de inicializar la aceleración en el constructor del objeto, vamos a elegir un valor de aceleración en cada ciclo, es decir, cada vez que se ejecute <code>actualizar()</code>.</p>
 
-<figure class="screenshot" data-pde="processingjs/chapter01/_1_9_motion101_acceleration/_1_9_motion101_acceleration.pde processingjs/chapter01/_1_9_motion101_acceleration/Mover.pde"><img alt="ch01 ex09" src="chapter01/ch01_ex09.png" />
+<Figura class="screenshot" data-pde="processingjs/chapter01/_1_9_motion101_acceleration/_1_9_motion101_acceleration.pde processingjs/chapter01/_1_9_motion101_acceleration/Mover.pde"><img alt="ch01 ex09" src="capitulo01/ch01_ex09.png" />
 <figcaption>&nbsp;</figcaption>
-</figure>
+</Figura>
 
 <div data-type="example"><h5>Ejemplo 1.9: Movimiento 101 (velocidad y aceleración aleatoria)</h5></div>
 
@@ -1258,7 +1275,7 @@ aceleracion.mult(random(2));</pre>
 
 <p>Aunque esto parezca obvio, es crucial entender que la aceleración no se refiere solamente a <em>ir más rápido</em> ni tampoco a <em>ir más lento</em>, sino a <em>todo y cualquier cambio</em> en a velocidad, ya sea en magnitud como en dirección. La aceleración se usa entonces para conducir a un objeto, pero esto lo volveremos a revisar una y otra vez en capítulos futuros cuando programemos objetos que tomen sus propias decisiones sobre cómo moverse en la pantalla.</p>
 
-<div data-type="exercise" id="chapter01_exercise6">
+<div data-type="exercise" id="capitulo01_exercise6">
 <h5>Ejercicio 1.6</h5>
 
 <p>Puedes volver a revisar la <a href="#intro_section6">Introducción</a>, para ahora implementarla aceleración utilizando ruido Perlinano.</p>
@@ -1266,7 +1283,7 @@ aceleracion.mult(random(2));</pre>
 </section>
 </section>
 
-<section data-type="sect1" id="chapter01_section9">
+<section data-type="sect1" id="capitulo01_section9">
 <h2>1.9 funciones Estáticas vs. No Estáticas</h2>
 
 <a data-primary="functions" data-secondary="static vs. non-static" data-type="indexterm"></a> <a data-primary="methods" data-secondary="static vs. non-static" data-type="indexterm"></a> <a data-primary="Processing" data-secondary="static vs. non-static methods" data-type="indexterm"></a>
@@ -1281,7 +1298,7 @@ float y = 5;
 
 x = x + y;</pre>
 
-<p>Bastante simple, ¿cierto>? <code>x</code> tiene valor 0, y le agregamos <code>y</code>, por lo que ahora <code>x</code> es igual a 5. Considerando lo que hemos aprendido sobre la clase <em>PVector</em>, podríamos reescribir el código fácilmente así:</p>
+<p>Bastante simple, ¿cierto? <code>x</code> tiene valor 0, y le agregamos <code>y</code>, por lo que ahora <code>x</code> es igual a 5. Considerando lo que hemos aprendido sobre la clase <em>PVector</em>, podríamos reescribir el código fácilmente así:</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
 PVector v = new PVector(0, 0);
@@ -1362,7 +1379,7 @@ PVector w = PVector.add(v, u);</pre>
 
 <p>La clase <code>PVector</code> tiene versiones estáticas de <code>add()</code>, <code>sub()</code>, <code>mult()</code>, y <code>div()</code>.</p>
 
-<div data-type="exercise" id="chapter01_exercise7">
+<div data-type="exercise" id="capitulo01_exercise7">
 <h5>Ejercicio 1.7</h5>
 
 <p>Transforma el siguiente pseudocódigo a código utilizando funciones estáticas y no estáticas según corresponda.</p>
@@ -1390,14 +1407,14 @@ ___________;</pre>
 </div>
 </section>
 
-<section data-type="sect1" id="chapter01_section10">
+<section data-type="sect1" id="capitulo01_section10">
 <h2>1.10 Interactividad con Aceleración</h2>
 
 <a data-primary="acceleration algorithms" data-secondary="interactive" data-type="indexterm"></a>
 
-<figure class="half-width-right" id="chapter01_figure14"><img alt="Figure 1.14" src="chapter01/ch01_14.png" />
+<Figura class="half-width-right" id="capitulo01_Figura14"><img alt="Figura 1.14" src="capitulo01/ch01_14.png" />
 <figcaption>Figura 1.14</figcaption>
-</figure>
+</Figura>
 
 <p>Para terminar este capítulo, tratemos algo un poco más complejo y mucho más útil. Calcularemos dinámicamente la aceleración de un objeto, de acuerdo a la regla fijada en el Algoritmo #3 — el objeto acelera hacia el mouse.
 </p>
@@ -1405,9 +1422,9 @@ ___________;</pre>
 <p>En cualquier momento que queramos calcular un vector basado en una regla o una fórmula, tenemos que calcular dos cosas: <strong><em>magnitud</em></strong> y <strong><em>dirección</em></strong> Empecemos con la dirección. Sabemos que el vector de aceleración debería apuntar desde la posición del objeto hacia la posición del mouse. Digamos que el objeto está ubicado en el punto (<code>x</code>,<code>y</code>) y el mouse está en el (<code>mouseX</code>,<code>mouseY</code>).
 </p>
 
-<figure class="half-width-right" id="chapter01_figure15"><img alt="Figure 1.15" src="chapter01/ch01_15.png" />
+<Figura class="half-width-right" id="capitulo01_Figura15"><img alt="Figura 1.15" src="capitulo01/ch01_15.png" />
 <figcaption>Figura 1.15</figcaption>
-</figure>
+</Figura>
 
 <p>En la Figura 1.15, vemos que podemos obtener un vector (<code>dx</code>,<code>dy</code>) si restamos la posición del objeto con la posición del mouse.</p>
 
@@ -1456,9 +1473,9 @@ dir.mult(algo);</pre>
 
 <p>Y acá tenemos esos pasos, en la función <code>actualizar()</code>:</p>
 
-<figure class="screenshot" data-pde="processingjs/chapter01/_1_10_motion101_acceleration/_1_10_motion101_acceleration.pde processingjs/chapter01/_1_10_motion101_acceleration/Mover.pde"><img alt="ch01 ex10" src="chapter01/ch01_ex10.png" />
+<Figura class="screenshot" data-pde="processingjs/chapter01/_1_10_motion101_acceleration/_1_10_motion101_acceleration.pde processingjs/chapter01/_1_10_motion101_acceleration/Mover.pde"><img alt="ch01 ex10" src="capitulo01/ch01_ex10.png" />
 <figcaption>&nbsp;</figcaption>
-</figure>
+</Figura>
 
 <div data-type="example"><h5>Ejemplo 1.10: Aceleración hacia el mouse</h5></div>
 
@@ -1488,7 +1505,7 @@ dir.mult(algo);</pre>
 
 <p>Este ejemplo es notoriamente cercano al concepto de atracción gravitacional (en el cual un objeto es atraído a la posición del mouse). Cubriremos la Atracción Gravitacional en el próximo capítulo. Sin embargo, algo que nos falta aún es que la fuerza de gravedad (magnitud de la aceleración) es inversamente proporcional a la distancia. Esto significa que mientras más cerca este el objeto de su destino (el mouse), más rápido debe acelerar.</p>
 
-<div data-type="exercise" id="chapter01_exercise8">
+<div data-type="exercise" id="capitulo01_exercise8">
 <h5>Ejercicio 1.8</h5>
 
 <p>Intenta implementar el ejemplo anterior, con aceleración de magnitud variable, siendo más fuerte mientras esté más cerca, o más lejos.</p>
@@ -1496,9 +1513,9 @@ dir.mult(algo);</pre>
 
 <p>Veamos cómo se verá este ejemplo, con un arreglo de movedores (en vez de sólo uno).</p>
 
-<figure class="screenshot" data-pde="processingjs/chapter01/_1_11_motion101_acceleration_array/_1_11_motion101_acceleration_array.pde processingjs/chapter01/_1_11_motion101_acceleration_array/Mover.pde"><img alt="ch01 ex11" src="chapter01/ch01_ex11.png" />
+<Figura class="screenshot" data-pde="processingjs/chapter01/_1_11_motion101_acceleration_array/_1_11_motion101_acceleration_array.pde processingjs/chapter01/_1_11_motion101_acceleration_array/Mover.pde"><img alt="ch01 ex11" src="capitulo01/ch01_ex11.png" />
 <figcaption>&nbsp;</figcaption>
-</figure>
+</Figura>
 
 <div data-type="example"><h5>Ejemplo 1.11: Arreglo de movedores acelerando hacia el mouse</h5></div>
 
@@ -1613,9 +1630,9 @@ class Movedor {
   }
 }</pre>
 
-<figure class="screenshot" id="chapter01_figure16"><img src="chapter01/ch01_16.png" />
+<Figura class="screenshot" id="capitulo01_Figura16"><img src="capitulo01/ch01_16.png" />
 <figcaption>Figura 1.16: El proyecto ecosistema</figcaption>
-</figure>
+</Figura>
 
 <div data-type="tip">
 <h2>El proyecto ecosistema</h2>
