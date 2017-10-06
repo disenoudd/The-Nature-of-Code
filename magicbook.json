@@ -2,6 +2,21 @@
    "title":"The Nature of Code en Español",
    "destination":"build/:build",
    "files":[
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+      "capitulos/Introhtml.html"
+=======
+=======
+>>>>>>> shiffman/master
+      "chapters/00_1_titlepage.html",
+      "chapters/00_2_dedication.html",
+      "chapters/00_3_creditscopyright.html",
+      "chapters/00_5_preface.html",
+      "chapters/00_6_TOC.html",
+      "chapters/00_7_intro.html",
+      "chapters/01_vectors.html",
+=======
       "capitulos/00_0_bienvenida.html",
       "capitulos/00_1_paginatitular.html",
       "capitulos/00_2_dedicatoria.html",
@@ -10,6 +25,7 @@
       "capitulos/00_6_TOC.html",
       "capitulos/00_7_intro.html",
       "capitulos/01_vectores.html",
+>>>>>>> origin/master
       "chapters/02_forces.html",
       "capitulos/03_oscilacion.html",
       "chapters/04_particles.html",
@@ -24,6 +40,13 @@
    "addPlugins":[
      "magicbook-codesplit",
      "magicbook-katex"
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> shiffman/master
+=======
+>>>>>>> shiffman/master
+=======
+>>>>>>> origin/master
    ],
    "builds":[
       {
