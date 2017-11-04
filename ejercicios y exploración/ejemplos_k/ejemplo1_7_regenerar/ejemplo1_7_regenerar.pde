@@ -1,5 +1,5 @@
 /*
- Ejemplo 1.7: Movedor 101 (velocidad)
+ Ejemplo 1.7: caminante 101 (velocidad)
  The Nature of Code por Nathan Shiffman
  http://github.com/shiffman/the-Nature-of-Code
  
@@ -9,46 +9,46 @@
  http://github.com/disenoudd/the-Nature-of-Code
  */
 
-// Declarar objeto Movedor
-Movedor movedor;
+// Declarar objeto caminante
+Caminante caminante;
 
 void setup() {
   size(640, 360);
-  // Crear objeto Movedor
-  movedor = new Movedor();
+  // Crear objeto caminante
+  caminante = new Caminante();
 }
 void draw() {
   background(255);
 
-  // Llamar las funciones del objeto Movedor
-  movedor.actualizar();
-  movedor.revisarBordes();
-  movedor.mostrar();
+  // Llamar las funciones del objeto caminante
+  caminante.actualizar();
+  caminante.revisarBordes();
+  caminante.mostrar();
 }
 
 void keyPressed(){
-  movedor.regenerar();
+  caminante.regenerar();
 }
 
-class Movedor {
+class Caminante {
   // El objeto tiene dos PVectores: posicion y velocidad.
   PVector posicion;
   PVector velocidad;
 
-  Movedor() {
+  Caminante() {
     posicion = new PVector(random(width), random(height));
     velocidad = new PVector(random(-2, 2), random(-2, 2));
   }
 
   void actualizar() {
-    // El Movedor se mueve por la velocidad
+    // El caminante se mueve por la velocidad
     posicion.add(velocidad);
   }
 
   void mostrar() {
     stroke(0);
     fill(175);
-    // Ahora mostramos el Movedor.
+    // Ahora mostramos el caminante.
     ellipse(posicion.x, posicion.y, 16, 16);
   }
 

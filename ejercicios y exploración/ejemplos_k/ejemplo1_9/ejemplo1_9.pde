@@ -9,24 +9,24 @@
  http://github.com/disenoudd/the-Nature-of-Code
  */
 
-// Declarar objeto Movedor
-Movedor movedor;
+// Declarar objeto caminante
+Caminante caminante;
 
 void setup() {
   size(640, 360);
-  // Crear objeto Movedor
-  movedor = new Movedor();
+  // Crear objeto caminante
+  caminante = new Caminante();
 }
 void draw() {
   background(255);
 
-  // Llamar las funciones del objeto Movedor
-  movedor.actualizar();
-  movedor.revisarBordes();
-  movedor.mostrar();
+  // Llamar las funciones del objeto caminante
+  caminante.actualizar();
+  caminante.revisarBordes();
+  caminante.mostrar();
 }
 
-class Movedor {
+class Caminante {
   // El objeto tiene dos PVectores: posicion y velocidad.
   PVector posicion;
   PVector velocidad;
@@ -37,7 +37,7 @@ class Movedor {
   //La variable veloMax limitará la magnitud de velocidad.
   float veloMax;
 
-  Movedor() {
+  Caminante() {
     posicion = new PVector(width/2, height/2);
     velocidad = new PVector(0, 0);
     aceleracion = new PVector(-0.001, 0.01);
@@ -57,7 +57,7 @@ class Movedor {
   void mostrar() {
     stroke(0);
     fill(175);
-    // Ahora mostramos el Movedor.
+    // Ahora mostramos el caminante.
     ellipse(posicion.x, posicion.y, 16, 16);
   }
 

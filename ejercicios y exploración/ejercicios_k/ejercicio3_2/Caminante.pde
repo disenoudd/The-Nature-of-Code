@@ -1,4 +1,4 @@
-class Movedor {
+class Caminante {
   PVector posicion;
   PVector velocidad;
   PVector aceleracion;
@@ -8,7 +8,7 @@ class Movedor {
   float velAngular = 0;
   float acelAngular = 0.01;
 
-  Movedor(float m, float x, float y) {
+  Caminante(float m, float x, float y) {
     masa = m;
     posicion = new PVector(x, y);
     velocidad = new PVector(0, 0);

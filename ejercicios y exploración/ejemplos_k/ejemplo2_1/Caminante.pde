@@ -1,17 +1,21 @@
-class Movedor {
+class Caminante {
 
   PVector posicion;
   PVector velocidad;
   PVector aceleracion;
+  float masa;
 
-  Movedor() {
-    posicion = new PVector(width/2, height);
+  Caminante() {
+    posicion = new PVector(random(width), random(height));
     velocidad = new PVector(0, 0);
-    aceleracion = new PVector(0, -1);
+    aceleracion = new PVector(0, 0);
+    masa = 10;
   }
 
   void aplicarFuerza(PVector fuerza) {
-    aceleracion.add(fuerza);
+    PVector f = fuerza.get();
+    f.div(masa);
+    aceleracion.add(f);
   }
 
   void actualizar() {
@@ -22,18 +26,9 @@ class Movedor {
 
   void mostrar() {
     stroke(0);
-    float tx = posicion.x;
-    float ty = posicion.y;
-    float dx = random(-1.1, 1.1);
-    float dy = random(-1.1, -1.1);
-    //line(posicion.x, posicion.y, posicion.x, posicion.y+100);
-    bezier(tx, ty+30, tx-10, ty+10, tx+(10+dx), ty+(20+dy), tx+10, ty+100);
-    noStroke();
-    fill(#FF4646);
-    triangle(posicion.x, posicion.y +10, posicion.x+5, posicion.y+24, posicion.x-5, posicion.y+24);
-    ellipse(posicion.x, posicion.y, 32, 38);
-    fill(255, 70);
-    ellipse(posicion.x+2, posicion.y-8, 12, 13);
+    fill(120);
+    ellipse(posicion.x, posicion.y, 32, 32);
+
   }
 
   void revisarBordes() {

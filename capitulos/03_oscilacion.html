@@ -148,10 +148,10 @@ ellipse(-50, 0, 8, 8);</pre>
 
 <p>El bastón comienza en la pantalla sin rotación, y luego gira más y más rápido en la medida que el ángulo de rotación acelera.</p>
 
-<p>Esta idea podemos incporarla en nuestro objeto <code>Movedor</code>. Por ejemplo, podemos agregar variables relacionadas con movimiento angular a nuestro <code>Movedor</code>.</p>
+<p>Esta idea podemos incporarla en nuestro objeto <code>caminante</code>. Por ejemplo, podemos agregar variables relacionadas con movimiento angular a nuestro <code>caminante</code>.</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-  class Movedor {
+  class Caminante {
     PVector posicion;
     PVector velocidad;
     PVector aceleracion;
@@ -280,7 +280,7 @@ float acelAngular = 0.01;</pre>
 
 <a data-primary="rotation" data-secondary="pointing towards movement" data-type="indexterm"></a>
 
-<p>Volvamos a revisar el Ejemplo 1.10, donde teníamos un objeto <code>Movedor</code> acelerando su posición hacia el mouse.</p>
+<p>Volvamos a revisar el Ejemplo 1.10, donde teníamos un objeto <code>caminante</code> acelerando su posición hacia el mouse.</p>
 
 <figure class="screenshot" data-pde="processingjs/Chapter01/_1_10_motion101_acceleration/_1_10_motion101_acceleration.pde processingjs/Capítulo01/_1_10_motion101_acceleration/Mover.pde"><img alt="ch01 ex10" src="Capítulo01/ch01_ex10.png" />
 <figcaption>&nbsp;</figcaption>

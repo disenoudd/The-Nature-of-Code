@@ -1,5 +1,5 @@
 /* //<>//
- Ejemplo 1.11: Arreglo de movedores acelerando hacia el mouse
+ Ejemplo 1.11: Arreglo de caminantes acelerando hacia el mouse
  The Nature of Code por Nathan Shiffman
  http://github.com/shiffman/the-Nature-of-Code
  
@@ -10,24 +10,24 @@
  */
  
 // Un arreglo de objetos
-Movedor[] movedores = new Movedor[20];
+Caminante[] caminantes = new Caminante[20];
 
 void setup() {
   size(640, 360);
   background(255);
-  for (int i = 0; i < movedores.length; i++) {
+  for (int i = 0; i < caminantes.length; i++) {
     // Inicializa cada objeto dentro del array.
-    movedores[i] = new Movedor();
+    caminantes[i] = new Caminante();
   }
 }
 
 void draw() {
   background(255);
 
-  for (int i = 0; i < movedores.length; i++) {
+  for (int i = 0; i < caminantes.length; i++) {
     // Llama las funciones dentro de cada objeto en el array
-    movedores[i].actualizar();
-    movedores[i].revisarBordes();
-    movedores[i].mostrar();
+    caminantes[i].actualizar();
+    caminantes[i].revisarBordes();
+    caminantes[i].mostrar();
   }
 }

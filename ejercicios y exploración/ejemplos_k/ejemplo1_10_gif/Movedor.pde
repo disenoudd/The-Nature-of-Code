@@ -1,4 +1,4 @@
-class Movedor {
+class Caminante {
   // Creamos una instancia de animacion
   Animacion mariposa;
   
@@ -8,7 +8,7 @@ class Movedor {
 
   float veloMax;
 
-  Movedor() {
+  Caminante() {
     posicion = new PVector(width/2, height/2);
     velocidad = new PVector(0, 0);
     aceleracion = new PVector(-0.005, 0.005);
@@ -43,7 +43,7 @@ class Movedor {
   void mostrar() {
     stroke(0);
     fill(175);
-    // Ahora mostramos el Movedor
+    // Ahora mostramos el caminante
     mariposa.mostrar(posicion.x, posicion.y, actualizar().x,actualizar().y);
     //ellipse(posicion.x, posicion.y, 16, 16);
   }

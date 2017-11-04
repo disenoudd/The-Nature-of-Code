@@ -1,22 +1,22 @@
-class Movedor {
+class Caminante {
   {!2} El objeto tiene dos PVectores: posicion y velocidad.
   PVector posicion;
   PVector velocidad;
 
-  Movedor() {
+  Caminante() {
     posicion = new PVector(random(width), random(height));
     velocidad = new PVector(random(-2, 2), random(-2, 2));
   }
 
   void actualizar() {
-    //{!1} El Movedor se mueve por la velocidad
+    //{!1} El caminante se mueve por la velocidad
     posicion.add(velocidad);
   }
 
   void mostrar() {
     stroke(0);
     fill(175);
-    //{!1} Ahora mostramos el Movedor.
+    //{!1} Ahora mostramos el caminante.
     ellipse(posicion.x, posicion.y, 16, 16);
   }
 
@@ -36,19 +36,19 @@ class Movedor {
   }
 }
 
-//{!1} Declarar objeto Movedor
-Movedor movedor;
+//{!1} Declarar objeto caminante
+Caminante caminante;
 
 void setup() {
   size(640, 360);
-  //{!1} Crear objeto Movedor
-  movedor = new Movedor();
+  //{!1} Crear objeto caminante
+  caminante = new Caminante();
 }
 void draw() {
   background(255);
   
-  //{!3} Llamar las funciones del objeto Movedor
-  movedor.actualizar();
-  movedor.revisaBordes();
-  movedor.mostrar();
+  //{!3} Llamar las funciones del objeto caminante
+  caminante.actualizar();
+  caminante.revisaBordes();
+  caminante.mostrar();
 }

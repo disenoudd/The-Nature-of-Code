@@ -1,4 +1,4 @@
-class Movedor {
+class Caminante {
 
   PVector posicion;
   PVector velocidad;
@@ -8,7 +8,7 @@ class Movedor {
  
 
 
-  Movedor(float m, float x, float y) {
+  Caminante(float m, float x, float y) {
     masa = m;
     ancho = random(2,10);
     largo = random(5,8);

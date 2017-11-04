@@ -8,12 +8,12 @@
  http://github.com/disenoudd/the-Nature-of-Code
  */
 
-Movedor[] movedores = new Movedor[100];
+Caminante[] caminantes = new Caminante[100];
 
 void setup() {
   size(640, 360);
-  for (int i=0; i< movedores.length; i++) {
-    movedores[i] = new Movedor(random(0.1, 5), random(-5,50), 0);
+  for (int i=0; i< caminantes.length; i++) {
+    caminantes[i] = new Caminante(random(0.1, 5), random(-5,50), 0);
   }
   background(255);
 }
@@ -25,13 +25,13 @@ void draw() {
   PVector gravedad = new PVector(0, 0.1);
 
 
-  for (int i=0; i< movedores.length; i++) {
-    movedores[i].actualizar();
-    movedores[i].revisarBordes();
+  for (int i=0; i< caminantes.length; i++) {
+    caminantes[i].actualizar();
+    caminantes[i].revisarBordes();
 
-    movedores[i].aplicarFuerza(viento);
-    movedores[i].aplicarFuerza(gravedad);
+    caminantes[i].aplicarFuerza(viento);
+    caminantes[i].aplicarFuerza(gravedad);
 
-    movedores[i].mostrar();
+    caminantes[i].mostrar();
   }
 }

@@ -8,13 +8,13 @@
  http://github.com/disenoudd/the-Nature-of-Code
  */
 
-Movedor globo;
+Caminante globo;
 PVector viento = new PVector(0.075, 0);
 PVector gravedad = new PVector(0, 0.5);
 
 void setup() {
   size(640, 360);
-  globo = new Movedor();
+  globo = new Caminante();
   background(255);
 }
 

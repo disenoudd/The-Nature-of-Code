@@ -1,4 +1,4 @@
-class Mover {
+class Caminante {
 
   PVector location;
   PVector velocity;
@@ -9,7 +9,7 @@ class Mover {
   float aVelocity = 0;
   float aAcceleration = 0;
 
-  Mover(float m, float x, float y) {
+  Caminante(float m, float x, float y) {
     mass = m;
     location = new PVector(x,y);
     velocity = new PVector(random(-0.1,0.1),random(-0.1,0.1));

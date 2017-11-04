@@ -116,7 +116,7 @@ class caminante{
   
   float tx,ty;
   
-  caminante(){
+  Caminante(){
   tx = 0;
   ty = 10000;    
 }
@@ -142,7 +142,7 @@ En realidad, no existe una concepción del paso del tiempo aquí. Es una metáfo
 
 ##### Ejercicio I.7
 
-En el caminante aleatorio el resultado de la función esta mapeado directamente a la posición de el `caminante()`.  Crea un caminante aleatorio donde el resultado de la función `noise ()`  sea mapeado para determinar el tamaño del paso de `Walker` .
+En el caminante aleatorio el resultado de la función esta mapeado directamente a la posición de el `Caminante()`.  Crea un caminante aleatorio donde el resultado de la función `noise ()`  sea mapeado para determinar el tamaño del paso de `Walker` .
 
 ------
 

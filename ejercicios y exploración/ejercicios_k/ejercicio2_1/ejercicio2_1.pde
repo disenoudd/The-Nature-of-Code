@@ -11,13 +11,13 @@
  http://github.com/disenoudd/the-Nature-of-Code
  */
 
-Movedor globo;
+Caminante globo;
 float t = random(1000);
 
 
 void setup() {
   size(640, 360);
-  globo = new Movedor();
+  globo = new Caminante();
   background(255);
 }
 

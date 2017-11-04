@@ -10,16 +10,16 @@
  
  */
  
-Movedor movedor;
+Caminante caminante;
 
 void setup() {
   size(640, 480);
-  movedor = new Movedor();
+  caminante = new Caminante();
 
 }
 void draw() {
   background(255);
-  movedor.actualizar();
-  movedor.revisaBordes();
-  movedor.mostrar();
+  caminante.actualizar();
+  caminante.revisaBordes();
+  caminante.mostrar();
 }

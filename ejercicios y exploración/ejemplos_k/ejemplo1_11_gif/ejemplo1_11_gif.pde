@@ -1,5 +1,5 @@
 /*
- Ejemplo 1.11: Arreglo de movedores acelerando hacia el mouse
+ Ejemplo 1.11: Arreglo de caminantes acelerando hacia el mouse
  The Nature of Code por Nathan Shiffman
  http://github.com/shiffman/the-Nature-of-Code
  
@@ -9,21 +9,21 @@
  http://github.com/disenoudd/the-Nature-of-Code
  
  MODS:
- Llevamos clase Mover a su propio archivo
+ Llevamos clase Caminante a su propio archivo
  Agregamos clase Animacion
  Mostrarmos un GIF animado en el lugar de la ellipse
  https://processing.org/examples/animatedsprite.html
  */
 
-// Declarar objeto Movedor
-Movedor[] movedores = new Movedor[20];
+// Declarar objeto caminante
+Caminante[] caminantes = new Caminante[20];
 PImage hibisco;
 PImage pradera;
 
 void setup() {
   size(800, 600);
-  for (int i=0; i< movedores.length; i++) {
-    movedores[i] = new Movedor();
+  for (int i=0; i< caminantes.length; i++) {
+    caminantes[i] = new Caminante();
   }
   //frameRate(15);
   hibisco = loadImage("hibisco.png");
@@ -40,11 +40,11 @@ void draw() {
   //image(hibisco, mouseX,mouseY);
   
 
-  for (int i = 0; i < movedores.length; i++) {
+  for (int i = 0; i < caminantes.length; i++) {
     //{!3} Calling functions on all the objects in the array
-    movedores[i].actualizar();
-    movedores[i].revisarBordes();
-    movedores[i].mostrar();
+    caminantes[i].actualizar();
+    caminantes[i].revisarBordes();
+    caminantes[i].mostrar();
   }
   
   text("Usa 'a/A' separar las partículas/mariposas", 20, height-60);
@@ -53,12 +53,12 @@ void draw() {
 
 void keyPressed() {
   if (key == 'a' || key == 'A') {
-    for (int i = 0; i < movedores.length; i++) {
-      movedores[i].acelera();
+    for (int i = 0; i < caminantes.length; i++) {
+      caminantes[i].acelera();
     }
   } else if (key == 'f' || key == 'F') {
-    for (int i = 0; i < movedores.length; i++) {
-      movedores[i].toggle();
+    for (int i = 0; i < caminantes.length; i++) {
+      caminantes[i].toggle();
     }
   }
 }

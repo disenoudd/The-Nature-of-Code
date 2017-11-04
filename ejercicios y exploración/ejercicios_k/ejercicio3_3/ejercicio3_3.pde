@@ -13,13 +13,13 @@
  
 */
 
-Movedor m;
+Caminante c;
 float x, y;
 
 void setup() {
   size(600, 360);
   smooth();
-  m = new Movedor(); 
+  c = new Caminante(); 
   x=0;
   y=0;
 }
@@ -36,14 +36,14 @@ void draw() {
       }
     }
   }
-  m.update(x, y);
-  m.checkEdges();
-  m.display();
+  c.update(x, y);
+  c.checkEdges();
+  c.display();
   
   text("x: " + x, 30, height-60);
-  text("m.x: " + nf(int(m.posicion.x), 2), 30, height-40);
-  text("m.y: " + nf(int(m.posicion.y), 2), 100, height-40);
-  text("m.a: " + degrees(m.angulo), 30, height-20);
+  text("c.x: " + nf(int(c.posicion.x), 2), 30, height-40);
+  text("c.y: " + nf(int(c.posicion.y), 2), 100, height-40);
+  text("c.a: " + degrees(c.angulo), 30, height-20);
 }
 
 void keyReleased() {

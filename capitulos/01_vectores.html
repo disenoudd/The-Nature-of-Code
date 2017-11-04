@@ -845,37 +845,37 @@ ellipse(posicion.x,posicion.y,16,16);</pre>
 
 <p>En la pelota saltarina, todo el código ocurre en la pestaña principal de Processing, dentro del bloque <code>setup()</code> y <code>draw()</code>. Lo que queremos ahora, es poder encapsular toda la lógica de movimiento en una <strong><em>clase</em></strong>. Así, podemos crear una base para programar objetos que se mueven en Processing. En la <a href="#intro_section2">sección I.2 de la Introducción</a>, "La Clase del Caminante Aleatorio", revisamos brevemente las bases de la programación orientada a objetos ("OOP"). Más allá de esa breve introducción, este libro asume experiencia con objetos y clases en Processing. Si necesitas un recordatorio, te sugiero revisar el <a href="http://processing.org/learning/objects/">tutorial de Objetos en Proessing</a>.</p>
 
-<p>En este caso, crearemos una clase <code>Movedora</code> genérica que describirá una cosa que se mueve por la patnalla. Por lo que tenemos que considerar las siguientes dos preguntas:</p>
+<p>En este caso, crearemos una clase <code>caminante</code> genérica que describirá una cosa que se mueve por la patnalla. Por lo que tenemos que considerar las siguientes dos preguntas:</p>
 
 <ol>
 	<li>
-	<p><strong><em>¿Qué datos tiene un movedor?</em></strong></p>
+	<p><strong><em>¿Qué datos tiene un caminante?</em></strong></p>
 	</li>
 	<li>
-	<p><strong><em>¿Qué funcionalidades tiene un movedor?</em></strong></p>
+	<p><strong><em>¿Qué funcionalidades tiene un caminante?</em></strong></p>
 	</li>
 </ol>
 
-<p>Nuestro algoritmo Movimiento 101 responde esas preguntas. Un objeto <code>Movedor</code> tiene dos grupos de datos: <code>posicion</code> y <code>velocidad</code>, y ambos son objetos tipo <code>PVector</code>.</p>
+<p>Nuestro algoritmo Movimiento 101 responde esas preguntas. Un objeto <code>caminante</code> tiene dos grupos de datos: <code>posicion</code> y <code>velocidad</code>, y ambos son objetos tipo <code>PVector</code>.</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-class Movedor {
+class Caminante {
 
   PVector posicion;
   PVector velocidad;</pre>
 
-<p>Su funcionalidad es igualmente simple. El <code>Movedor</code> se debe mover y se debe ver. Implementaremos estas necesidades como funciones llamadas <code>actualizar()</code> y <code>mostrar()</code>. Pondremos la løgica de movimiento dentro de <code>actualizar()</code> y dibujaremos el objeto en <code>mostrar()</code>.</p>
+<p>Su funcionalidad es igualmente simple. El <code>caminante</code> se debe mover y se debe ver. Implementaremos estas necesidades como funciones llamadas <code>actualizar()</code> y <code>mostrar()</code>. Pondremos la løgica de movimiento dentro de <code>actualizar()</code> y dibujaremos el objeto en <code>mostrar()</code>.</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
   void actualizar() {
-    //{!1} El Movedor se mueve.
+    //{!1} El caminante se mueve.
     posicion.add(velocidad);
   }
 
   void mostrar() {
     stroke(0);
     fill(175);
-    //{!1} Ahora mostramos el Movedor.
+    //{!1} Ahora mostramos el caminante.
     ellipse(posicion.x, posicion.y, 16, 16);
   }
 }</pre>
@@ -885,20 +885,20 @@ class Movedor {
 <p>Hemos olvidado un elemento crucial: el <strong><em>constructor</em></strong></p>. El construcor es una función especial al interior de una clase que crea la instancia del objeto mismo. Es el lugar donde dejamos las instrucciones sobre cómo crear y configurar el objeto. Siempre tiene el mismo nombre que la clase, y se invoca utilizando el operador o palabra clave <strong><em>new</em></strong> (nuevo):</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-  Movedor m = new Movedor();</pre>
+  caminante m = new Caminante();</pre>
 
-<p>En nuestro caso, decidamos arbitrariamente inicializar nuestro objeto <code>Movedor</code> dándole una posición y velocidad aleatorias.</p>
+<p>En nuestro caso, decidamos arbitrariamente inicializar nuestro objeto <code>caminante</code> dándole una posición y velocidad aleatorias.</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-  Movedor() {
+  Caminante() {
     posicion = new PVector(random(width), random(height));
     velocidad = new PVector(random(-2,2), random(-2,2));
   }</pre>
 
-<p>Si la programación orientada a objetos es algo nuevo para ti, un aspecto de esto puede ser confuso. Después de todo, iniciamos este capítulo discutiendo la clase <code>PVector</code>. La clase <code>PVector</code> es una plantilla para hacer un objeto de <code>posición</code> y otro de <code>velocidad</code>. Entonces ¿qué hacen dentro de otro objeto, dentro de la clase <code>Movedor</code>? En realidad, esto es algo muy normal. Un objeto es simplemente algo que contiene data (y funcionalidad). ¡Los datos pueden ser números (enteros, decimales, etc.) u otros objetos! Veremos esto una y otra vez en este libro. Pro ejemplo, en el <a href="#chapter04_section1">Capítulo 4</a> escribiremos una clase para describir un sistema de partículas. El objeto <code>SistemaDeParticulas</code> tendrá como datos, una lista de objetos tipo <code>Particula</code>… y cada <code>Particula</code> tiene como datos variados objetos tipo <code>Pvector</code>.</p>
+<p>Si la programación orientada a objetos es algo nuevo para ti, un aspecto de esto puede ser confuso. Después de todo, iniciamos este capítulo discutiendo la clase <code>PVector</code>. La clase <code>PVector</code> es una plantilla para hacer un objeto de <code>posición</code> y otro de <code>velocidad</code>. Entonces ¿qué hacen dentro de otro objeto, dentro de la clase <code>caminante</code>? En realidad, esto es algo muy normal. Un objeto es simplemente algo que contiene data (y funcionalidad). ¡Los datos pueden ser números (enteros, decimales, etc.) u otros objetos! Veremos esto una y otra vez en este libro. Pro ejemplo, en el <a href="#chapter04_section1">Capítulo 4</a> escribiremos una clase para describir un sistema de partículas. El objeto <code>SistemaDeParticulas</code> tendrá como datos, una lista de objetos tipo <code>Particula</code>… y cada <code>Particula</code> tiene como datos variados objetos tipo <code>Pvector</code>.</p>
 
 
-<p>Terminemos de escribir la clase <code>Movedor</code> incorporándoles una función para determinar qué debe hacer el objeto cuando llegue al borde de la ventana. Por ahora, hagamos algo simple, y sólo programemos que pase de un borde al otro.</p>
+<p>Terminemos de escribir la clase <code>caminante</code> incorporándoles una función para determinar qué debe hacer el objeto cuando llegue al borde de la ventana. Por ahora, hagamos algo simple, y sólo programemos que pase de un borde al otro.</p>
 
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
@@ -918,22 +918,22 @@ class Movedor {
   }</pre>
 
 
-<p>Ahora que la clase <code>Movedor</code> está terminada, podemos ver qué hacer en nuestro programa principal. Primero declaremos un nuevo  objeto basado en <code>Movedor</code>:</p>
+<p>Ahora que la clase <code>caminante</code> está terminada, podemos ver qué hacer en nuestro programa principal. Primero declaremos un nuevo  objeto basado en <code>caminante</code>:</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-Movedor movedor;</pre>
+Caminante caminante;</pre>
 
-<p>Luego, crear e inicializar a movedor en el <code>setup()</code>:</p>
+<p>Luego, crear e inicializar a caminante en el <code>setup()</code>:</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-movedor = new Movedor();</pre>
+caminante = new Caminante();</pre>
 
 <p>y llamar la función correspondiente en <code>draw()</code>:</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-movedor.actualizar();
-movedor.revisarBorde();
-movedor.mostrar();</pre>
+caminante.actualizar();
+caminante.revisarBorde();
+caminante.mostrar();</pre>
 
 <p>Acá está el ejemplo completo para referencia:</p>
 
@@ -941,47 +941,47 @@ movedor.mostrar();</pre>
 <figcaption>&nbsp;</figcaption>
 </Figura>
 
-<div data-type="example"><h5>Ejemplo 1.7: Movedor 101 (velocidad)</h5></div>
+<div data-type="example"><h5>Ejemplo 1.7: caminante 101 (velocidad)</h5></div>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-  //{!1} Declarar objeto Movedor
-  Movedor movedor;
+  //{!1} Declarar objeto caminante
+  Caminante caminante;
 
   void setup() {
     size(640, 360);
-    //{!1} Crear objeto Movedor
-    movedor = new Movedor();
+    //{!1} Crear objeto caminante
+    caminante = new Caminante();
   }
   void draw() {
     background(255);
 
-    //{!3} Llamar las funciones del objeto Movedor
-    movedor.actualizar();
-    movedor.revisarBordes();
-    movedor.mostrar();
+    //{!3} Llamar las funciones del objeto caminante
+    caminante.actualizar();
+    caminante.revisarBordes();
+    caminante.mostrar();
   }
 
 </pre>
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-  class Movedor {
+  class Caminante {
     {!2} El objeto tiene dos PVectores: posicion y velocidad.
     PVector posicion;
     PVector velocidad;
 
-    Movedor() {
+    Caminante() {
       posicion = new PVector(random(width), random(height));
       velocidad = new PVector(random(-2, 2), random(-2, 2));
     }
 
     void actualizar() {
-      //{!1} El Movedor se mueve por la velocidad
+      //{!1} El caminante se mueve por la velocidad
       posicion.add(velocidad);
     }
 
     void mostrar() {
       stroke(0);
       fill(175);
-      //{!1} Ahora mostramos el Movedor.
+      //{!1} Ahora mostramos el caminante.
       ellipse(posicion.x, posicion.y, 16, 16);
     }
 
@@ -1036,10 +1036,10 @@ posicion.add(velocidad);</pre>
 
 <a data-primary="acceleration algorithms" data-secondary="constant" data-type="indexterm"></a>
 
-<p>El algoritmo #1, <em>aceleración constante</em>, no es particularmente interesante, pero es el más simple y por eso nos permitirá empezar a incorporar aceleración a nuestro código. Lo primero que debemos hacer es crear otro <code>PVector</code> en la clase <code>Movedor</code>:</p>
+<p>El algoritmo #1, <em>aceleración constante</em>, no es particularmente interesante, pero es el más simple y por eso nos permitirá empezar a incorporar aceleración a nuestro código. Lo primero que debemos hacer es crear otro <code>PVector</code> en la clase <code>caminante</code>:</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-class Movedor {
+class Caminante {
 
   PVector posicion;
   PVector velocidad;
@@ -1058,9 +1058,9 @@ class Movedor {
 <p>Estamos casi listos. Sólo nos falta la inicialización en el constructor de la clase.</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-  Movedor() {</pre>
+  Caminante() {</pre>
 
-<p>Comencemos con el objeto <code>Movedor</code> en la mitad de la ventana…</p>
+<p>Comencemos con el objeto <code>caminante</code> en la mitad de la ventana…</p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
     posicion = new PVector(width/2,height/2);</pre>
@@ -1102,7 +1102,7 @@ velocidad.limit(10);</pre>
   }</pre>
 </div>
 
-<p>Miremos los cambios que hemos hecho en la clase <code>Movedor</code>, incluyendo la <code>aceleración</code> y <code>limit()</code>.</p>
+<p>Miremos los cambios que hemos hecho en la clase <code>caminante</code>, incluyendo la <code>aceleración</code> y <code>limit()</code>.</p>
 
 <Figura class="screenshot" data-pde="processingjs/chapter01/_1_8_motion101_acceleration/_1_8_motion101_acceleration.pde processingjs/chapter01/_1_8_motion101_acceleration/Mover.pde"><img alt="ch01 ex08" src="capitulo01/ch01_ex08.png" />
 <figcaption>&nbsp;</figcaption>
@@ -1111,7 +1111,7 @@ velocidad.limit(10);</pre>
 <div data-type="example"><h5>Ejemplo 1.8: Movimiento 101 (velocidad y aceleración constante)</h5></div>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-class Movedor {
+class Caminante {
 
   PVector posicion;
   PVector velocidad;
@@ -1121,7 +1121,7 @@ class Movedor {
   //{!1} La variable veloMax limitará la magnitud de velocidad.
   float veloMax;
 
-  Movedor() {
+  Caminante() {
     posicion = new PVector(width/2, height/2);
     velocidad = new PVector(0, 0);
     aceleracion = new PVector(-0.001, 0.01);
@@ -1349,7 +1349,7 @@ ___________;</pre>
 	</li>
 </ul>
 
-<p>Volvamos a escribir lo anterior usando la sintaxis de <code>PVector</code>. Asumiendo que estamos en la clase <code>Movedor</code> y por lo tanto tenemos acceso al <code>PVector posicion</code> del objeto, entonces tenemos:
+<p>Volvamos a escribir lo anterior usando la sintaxis de <code>PVector</code>. Asumiendo que estamos en la clase <code>caminante</code> y por lo tanto tenemos acceso al <code>PVector posicion</code> del objeto, entonces tenemos:
 </p>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
@@ -1357,7 +1357,7 @@ PVector mouse = new PVector(mouseX,mouseY);
 // ¡Mira! Estamos usando la referencia estática para sub() porque queremos un nuevo PVector aputando de un punto hacia otro.
 PVector dir = PVector.sub(mouse, posicion);</pre>
 
-<p>Ahora tenemos un <code>PVector</code> que apunta desde la posición del Movedor hasta la posición del mouse. Si el objeto, realmente fuera a acelerar usando ese vector, aparecería instantáneamente en la posición del mouse. Esto no hace una buena animación, y lo que queremos hacer ahora es decidir qué tan rápido ese objeto debería acelerar hacia el mouse.</p>
+<p>Ahora tenemos un <code>PVector</code> que apunta desde la posición del caminante hasta la posición del mouse. Si el objeto, realmente fuera a acelerar usando ese vector, aparecería instantáneamente en la posición del mouse. Esto no hace una buena animación, y lo que queremos hacer ahora es decidir qué tan rápido ese objeto debería acelerar hacia el mouse.</p>
 
 <p>Para obtner la magnitud (cualquiera ésta sea) de nuestro <code>PVector</code> de aceleración, primero tenemos que <em>_</em> ese vector de dirección. Exacto, tal cual. <em>Normalizar</em>. Si podemos reducir el tamaño del vector a su vector unitario (de largo uno), entonces tenemos un vector que indica la dirección, y que fácilmente podemos escalar a cualqueir valor. Uno multiplicado por algo es igual a ese algo.</p>
 
@@ -1423,46 +1423,46 @@ dir.mult(algo);</pre>
 <p>Intenta implementar el ejemplo anterior, con aceleración de magnitud variable, siendo más fuerte mientras esté más cerca, o más lejos.</p>
 </div>
 
-<p>Veamos cómo se verá este ejemplo, con un arreglo de movedores (en vez de sólo uno).</p>
+<p>Veamos cómo se verá este ejemplo, con un arreglo de caminantes (en vez de sólo uno).</p>
 
 <Figura class="screenshot" data-pde="processingjs/chapter01/_1_11_motion101_acceleration_array/_1_11_motion101_acceleration_array.pde processingjs/chapter01/_1_11_motion101_acceleration_array/Mover.pde"><img alt="ch01 ex11" src="capitulo01/ch01_ex11.png" />
 <figcaption>&nbsp;</figcaption>
 </Figura>
 
-<div data-type="example"><h5>Ejemplo 1.11: Arreglo de movedores acelerando hacia el mouse</h5></div>
+<div data-type="example"><h5>Ejemplo 1.11: Arreglo de caminantes acelerando hacia el mouse</h5></div>
 
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
 //{!1} Un arreglo de objetos
-Movedor[] movedores = new Movedor[20];
+Caminante[] caminantes = new Caminante[20];
 
 void setup() {
   size(640, 360);
   background(255);
-  for (int i = 0; i < movedores.length; i++) {
+  for (int i = 0; i < caminantes.length; i++) {
     //{!1} Inicializa cada objeto dentro del array.
-    movedores[i] = new Movedor();
+    caminantes[i] = new Caminante();
   }
 }
 
 void draw() {
   background(255);
 
-  for (int i = 0; i < movedores.length; i++) {
+  for (int i = 0; i < caminantes.length; i++) {
     //{!3} Llama las funciones de cada objeto dentro del array
-    movedores[i].actualizar();
-    movedores[i].revisarBordes();
-    movedores[i].mostrar();
+    caminantes[i].actualizar();
+    caminantes[i].revisarBordes();
+    caminantes[i].mostrar();
   }
 }</pre>
 <pre data-code-language="java" data-type="programlisting" class="codesplit">
-class Movedor {
+class Caminante {
 
   PVector posicion;
   PVector velocidad;
   PVector aceleracion;
   float veloMax;
 
-  Movedor() {
+  Caminante() {
     posicion = new PVector(random(width), random(height));
     velocidad = new PVector(0, 0);
     veloMax = 4;
@@ -1490,7 +1490,7 @@ class Movedor {
     posicion.add(velocidad);
     }
 
-  // Mostrar el Movedor
+  // Mostrar el caminante
   void mostrar() {
     stroke(0);
     fill(175);

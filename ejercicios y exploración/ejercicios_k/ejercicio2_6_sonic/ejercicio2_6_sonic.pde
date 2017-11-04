@@ -8,7 +8,7 @@
  http://github.com/disenoudd/the-Nature-of-Code
  */
 
-Movedor[] movedores = new Movedor[1];
+Caminante[] caminantes = new Caminante[1];
 Liquido liquido;
 Liquido liquido2;
 PFont simon;
@@ -17,8 +17,8 @@ PImage sonic;
 
 void setup() {
   size(800, 340);
-  for (int i=0; i< movedores.length; i++) {
-    movedores[i] = new Movedor(random(1, 5), random(width), 50);
+  for (int i=0; i< caminantes.length; i++) {
+    caminantes[i] = new Caminante(random(1, 5), random(width), 50);
   }
   liquido = new Liquido (300, 0, 150, height, 0.1, false); // true = oculto
 
@@ -42,26 +42,26 @@ void draw() {
   // Podríamos escalar por masa para ser más precisos (dentro de for loop)
   //PVector gravedad = new PVector(0, 0.3);
 
-  for (int i=0; i< movedores.length; i++) {
+  for (int i=0; i< caminantes.length; i++) {
 
-    float m = movedores[i].masa * 0.075;
+    float m = caminantes[i].masa * 0.075;
     PVector gravedad = new PVector(0, 1);
-    movedores[i].aplicarFuerza(gravedad);
+    caminantes[i].aplicarFuerza(gravedad);
 
 
 
     PVector viento = new PVector(0, 0);
 
-    if (movedores[i].posicion.x > 150 && movedores[i].posicion.x < 300) {
-      movedores[i].aplicaFriccion(0.05);
+    if (caminantes[i].posicion.x > 150 && caminantes[i].posicion.x < 300) {
+      caminantes[i].aplicaFriccion(0.05);
     }
 
-    if (movedores[i].estaSobre(liquido)) {
-      movedores[i].arrastrarPor(liquido);
+    if (caminantes[i].estaSobre(liquido)) {
+      caminantes[i].arrastrarPor(liquido);
     } else {
       // solo aplicar viento si NO está en líquido
       //viento.add(random(-0.05, 0.05), -0.1);
-      movedores[i].aplicarFuerza(viento);
+      caminantes[i].aplicarFuerza(viento);
     }
 
 
@@ -69,10 +69,10 @@ void draw() {
 
 
 
-    movedores[i].actualizar();
-    movedores[i].mostrar();
-    movedores[i].revisarBordes();
-    movedores[i].aplicarFuerza(viento);
+    caminantes[i].actualizar();
+    caminantes[i].mostrar();
+    caminantes[i].revisarBordes();
+    caminantes[i].aplicarFuerza(viento);
   }
 }
 
@@ -87,8 +87,8 @@ void keyPressed() {
     }
    
     println(brisa.y);
-    for (int i=0; i< movedores.length; i++) {
-     movedores[i].aplicarFuerza(brisa);
+    for (int i=0; i< caminantes.length; i++) {
+     caminantes[i].aplicarFuerza(brisa);
     }
   }
 }

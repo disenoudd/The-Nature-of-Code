@@ -1,16 +1,13 @@
-class Movedor {
+class Caminante {
 
   PVector posicion;
   PVector velocidad;
   PVector aceleracion;
   float masa;
-  float ancho, largo;
 
 
-  Movedor(float m, float x, float y) {
+  Caminante(float m, float x, float y) {
     masa = m;
-    ancho = random(2,10);
-    largo = random(5,8);
     posicion = new PVector(x, y);
     velocidad = new PVector(0, 0);
     aceleracion = new PVector(0, 0);
@@ -48,19 +45,15 @@ class Movedor {
   
   void arrastrarPor(Liquido l) {
     /*
-    CON SUPERFICIE
-    f = -0.5 * p * (v*v) * A * c * V_unit
     Con esta fórmula en cambio, los objetos logran eventualmente
     una misma aceleración independiente de su masa
     */
-    float speed = velocidad.mag();          // Object's speed
+    float speed = velocidad.mag();          // Object's speed  (not liquid)`
     float dragForce = l.c * speed * speed;  // The force’s magnitude: Cd * v~2~
-    float A = ancho;
-    
+
     PVector drag = velocidad.get();
     drag.mult(-1);        // The force's direction: -1 * velocity    
     drag.normalize();
-    drag.mult(A);
     drag.mult(dragForce); // Finalize the force: magnitude and direction together.
     aplicarFuerza(drag);  // Apply the force.
   }
@@ -81,15 +74,15 @@ class Movedor {
   void mostrar() {
     stroke(0);
     //fill(150, 100);
-    //strokeWeight(constrain(masa*3, 1, 15));
-    //point(posicion.x, posicion.y);
+    strokeWeight(constrain(masa*3, 1, 15));
+    point(posicion.x, posicion.y);
     fill(170);
     textSize(10);
     textAlign(CENTER);
     text(velocidad.mag(), posicion.x, posicion.y-20);
     text(masa, posicion.x, posicion.y-10);
     
-    rect(posicion.x, posicion.y, ancho, largo);
+    //ellipse(posicion.x, posicion.y, 2*masa, 2*masa);
   }
 
   void revisarBordes() {

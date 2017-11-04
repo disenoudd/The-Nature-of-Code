@@ -10,12 +10,12 @@
  
  */
 
-Mover asteroid;
+Caminante asteroid;
 
 void setup() {
   size(400, 400);
   background(50);
-  asteroid = new Mover(1, width/2, height/2);
+  asteroid = new Caminante(1, width/2, height/2);
 }
 
 void draw() {

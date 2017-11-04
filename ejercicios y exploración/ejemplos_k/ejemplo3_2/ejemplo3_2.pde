@@ -7,13 +7,13 @@
  http://github.com/disenoudd/the-Nature-of-Code
  */
 
-Movedor[] movedores = new Movedor[20];
+Caminante[] caminantes = new Caminante[20];
 Atractor a;
 
 void setup() {
   size(640, 360);
-  for (int i = 0; i < movedores.length; i++) {
-    movedores[i] = new Movedor(random(0.1,2),random(width),random(height)); 
+  for (int i = 0; i < caminantes.length; i++) {
+    caminantes[i] = new Caminante(random(0.1,2),random(width),random(height)); 
   }
   a = new Atractor();
 }
@@ -23,10 +23,10 @@ void draw() {
   
   a.mostrar();
 
-  for (int i = 0; i < movedores.length; i++) {
-    PVector fuerza = a.atrae(movedores[i]);
-    movedores[i].aplicarFuerza(fuerza);
-    movedores[i].actualizar();
-    movedores[i].mostrar();
+  for (int i = 0; i < caminantes.length; i++) {
+    PVector fuerza = a.atrae(caminantes[i]);
+    caminantes[i].aplicarFuerza(fuerza);
+    caminantes[i].actualizar();
+    caminantes[i].mostrar();
   }
 }

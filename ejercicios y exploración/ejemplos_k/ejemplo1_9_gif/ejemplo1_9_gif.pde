@@ -9,32 +9,32 @@
  http://github.com/disenoudd/the-Nature-of-Code
  
  MODS:
- Llevamos clase Mover a su propio archivo
+ Llevamos clase Caminante a su propio archivo
  Agregamos clase Animacion
  Mostrarmos un GIF animado en el lugar de la ellipse
  https://processing.org/examples/animatedsprite.html
  */
 
-// Declarar objeto Movedor
-Movedor movedor;
-Movedor movedor2;
+// Declarar objeto caminante
+Caminante caminante;
+Caminante caminante2;
 
 void setup() {
   size(640, 360);
-  // Crear objeto Movedor
-  movedor = new Movedor();
-  movedor2 = new Movedor();
+  // Crear objeto caminante
+  caminante = new Caminante();
+  caminante2 = new Caminante();
   frameRate(12);
 }
 void draw() {
   background(255);
 
-  // Llamar las funciones del objeto Movedor
-  movedor.actualizar();
-  movedor.revisarBordes();
-  movedor.mostrar();
+  // Llamar las funciones del objeto caminante
+  caminante.actualizar();
+  caminante.revisarBordes();
+  caminante.mostrar();
   
-  movedor2.actualizar();
-  movedor2.revisarBordes();
-  movedor2.mostrar();
+  caminante2.actualizar();
+  caminante2.revisarBordes();
+  caminante2.mostrar();
 }
